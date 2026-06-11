@@ -8,3 +8,4 @@
 # divers
 .DS_Store
 *.log
+.vercel
