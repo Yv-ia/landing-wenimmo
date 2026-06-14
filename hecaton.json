@@ -1,0 +1,9 @@
+{
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "setup": "npm install",
+  "run": "npm run dev",
+  "archive": "rm -rf node_modules .next",
+  "previewUrl": "${HECATON_PREVIEW_ORIGIN}"
+}
