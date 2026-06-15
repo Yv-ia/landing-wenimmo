@@ -36,8 +36,10 @@
 
   --font: "Mona Sans", "Helvetica Neue", Arial, sans-serif;
 
-  /* Marges latérales généreuses (cf. feedback : marge plus grande à droite) */
-  --gutter: clamp(20px, 5vw, 72px);
+  /* Marges latérales : 88px du bord sur desktop, réduites sur mobile */
+  --gutter: clamp(16px, 5vw, 88px);
+  /* Largeur max du contenu : au-delà, il se recentre (écrans géants) */
+  --content-max: 1600px;
 
   /* Débord de l'aperçu plateforme du hero sur la section suivante */
   --mockup-overlap: clamp(60px, 12vw, 160px);
@@ -88,7 +90,9 @@ h1, h2, h3, h4 { color: var(--black); line-height: 1.15; font-weight: 700; }
 }
 
 .container {
-  max-width: 1240px;
+  /* contenu à --gutter (64px) du bord, plafonné à --content-max sur écrans géants */
+  width: 100%;
+  max-width: calc(var(--content-max) + 2 * var(--gutter));
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
@@ -185,12 +189,8 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  /* le header s'étend sur toute la largeur, avec 80px de marge de chaque côté */
-  max-width: none;
-  padding-inline: 80px;
-}
-@media (max-width: 900px) {
-  .header__inner { padding-inline: var(--gutter); }
+  /* le header s'aligne sur les sections (même --gutter et même plafond via .container) */
+  padding-inline: var(--gutter);
 }
 .header__logo-img { height: 24px; width: auto; }
 
@@ -219,6 +219,69 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   transition: width 0.25s ease;
 }
 .header__link:hover::after { width: 100%; }
+
+/* Déroulant « Nos offres » */
+.header__dropdown { position: relative; }
+.header__dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+}
+.header__chevron {
+  width: 11px;
+  height: 7px;
+  transition: transform 0.25s ease;
+}
+.header__dropdown:hover .header__chevron { transform: rotate(180deg); }
+
+.header__menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  min-width: 190px;
+  padding: 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 16px 44px rgba(20, 20, 60, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s 0.25s;
+}
+/* petite zone tampon pour ne pas perdre le survol entre le trigger et le menu */
+.header__menu::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+.header__dropdown:hover .header__menu,
+.header__dropdown:focus-within .header__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s;
+}
+.header__menu-link {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--black);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.header__menu-link:hover { background: var(--primary-soft); color: var(--primary); }
+
 .header__cta { display: flex; align-items: center; gap: 10px; }
 .header:not(.is-scrolled) .btn--ghost { color: var(--white); border-color: rgba(255,255,255,0.4); }
 .header:not(.is-scrolled) .btn--ghost:hover { border-color: var(--white); color: var(--white); }
@@ -269,6 +332,20 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   color: var(--black);
   padding-block: 10px;
   border-bottom: 1px solid var(--border);
+}
+.mobile-menu__group {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-top: 18px;
+  margin-bottom: 2px;
+}
+.mobile-menu__nav a.mobile-menu__sublink {
+  font-size: 19px;
+  font-weight: 600;
+  padding-left: 16px;
 }
 .mobile-menu__cta { display: flex; flex-direction: column; gap: 12px; }
 
@@ -357,8 +434,8 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   max-width: 1200px;
   margin-inline: auto;
   text-align: center;
-  /* padding latéral réduit par rapport aux autres sections */
-  padding-inline: clamp(12px, 2vw, 24px);
+  /* aligné sur les sections : --gutter (40px) */
+  padding-inline: var(--gutter);
 }
 
 .hero__badge {

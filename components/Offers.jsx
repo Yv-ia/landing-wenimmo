@@ -7,14 +7,13 @@ const SCPI_LOGOS = [
   { src: "/assets/partners/corum.svg", alt: "Corum", scale: 0.78 },
   { src: "/assets/partners/iroko.png", alt: "Iroko" },
   { src: "/assets/partners/remake.png", alt: "Remake AM" },
-  { src: "/assets/partners/sofidy.svg", alt: "Sofidy" },
-  { src: "/assets/partners/perial.png", alt: "Perial" },
-  { src: "/assets/partners/primonial.png", alt: "Primonial REIM" },
-  { src: "/assets/partners/la-francaise.png", alt: "La Française REM" },
-  { src: "/assets/partners/bnp.png", alt: "BNP Paribas REIM" },
+  { src: "/assets/partners/edmond-de-rothschild.png", alt: "Edmond de Rothschild" },
+  { src: "/assets/partners/alderan.png", alt: "Alderan" },
+  { src: "/assets/partners/arkea.png", alt: "Arkéa REIM" },
   { src: "/assets/partners/atland.png", alt: "Atland Voisin" },
+  { src: "/assets/partners/wemo.png", alt: "Wemo Reim" },
+  { src: "/assets/partners/mnk-partners.png", alt: "MNK Partners" },
   { src: "/assets/partners/norma-capital.png", alt: "Norma Capital" },
-  { src: "/assets/partners/paref.png", alt: "Paref Gestion" },
   { src: "/assets/partners/sogenial.png", alt: "Sogenial" },
 ];
 
@@ -46,7 +45,7 @@ const PE_PARTNERS = [
 const GFI_PARTNERS = [
   { name: "France Valley", url: "https://www.france-valley.com", logo: "/assets/partners/france-valley.svg" },
   { name: "Epicure AM", url: "https://epicuream.fr", logo: "/assets/partners/epicure-am.png" },
-  { name: "Sogenial", url: "https://www.sogenial.fr", logo: "/assets/partners/sogenial.png" },
+  { name: "Sogenial", url: "https://www.sogenial.fr", logo: "/assets/partners/sogenial.png", scale: 1.6 },
 ];
 
 /* Grille de logos partenaires, cliquables vers leurs sites */
@@ -143,7 +142,7 @@ export default function Offers() {
               <div className="offer-panel__figure">
                 <div className="offer-panel__topline">
                   <p className="offer-panel__num">+90</p>
-                  <p className="offer-panel__numlabel">Financement inclus</p>
+                  <p className="offer-panel__numlabel">SCPI · Financement inclus</p>
                 </div>
                 {/* Logos des sociétés de gestion, en grille sous le chiffre */}
                 <div className="logo-grid">
@@ -184,6 +183,10 @@ export default function Offers() {
           <div {...panelProps("gfi-gfv")}>
             <div className="offer-panel">
               <div className="offer-panel__figure">
+                <div className="offer-panel__topline">
+                  <p className="offer-panel__num">3</p>
+                  <p className="offer-panel__numlabel">GFI · GFV</p>
+                </div>
                 <LogoGrid partners={GFI_PARTNERS} />
               </div>
               <div className="offer-panel__body">
@@ -209,8 +212,10 @@ export default function Offers() {
           <div {...panelProps("assurance")}>
             <div className="offer-panel">
               <div className="offer-panel__figure">
-                <p className="offer-panel__num">6</p>
-                <p className="offer-panel__numlabel">compagnies partenaires, en architecture ouverte</p>
+                <div className="offer-panel__topline">
+                  <p className="offer-panel__num">6</p>
+                  <p className="offer-panel__numlabel">compagnies partenaires, en architecture ouverte</p>
+                </div>
                 <LogoGrid partners={INSURANCE_PARTNERS} />
               </div>
               <div className="offer-panel__body">
@@ -236,8 +241,10 @@ export default function Offers() {
           <div {...panelProps("private-equity")}>
             <div className="offer-panel">
               <div className="offer-panel__figure">
-                <p className="offer-panel__num">5</p>
-                <p className="offer-panel__numlabel">partenariats exclusifs avec des gérants spécialistes</p>
+                <div className="offer-panel__topline">
+                  <p className="offer-panel__num">5</p>
+                  <p className="offer-panel__numlabel">partenariats exclusifs avec des gérants spécialistes</p>
+                </div>
                 <LogoGrid partners={PE_PARTNERS} />
               </div>
               <div className="offer-panel__body">
