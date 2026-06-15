@@ -46,7 +46,7 @@ export default function Footer() {
               <a href="#assurance">Assurance</a>
               <a href="#private-equity">Private Equity</a>
               <a href="#gfi-gfv">GFI / GFV</a>
-              <a href="#rejoindre">Nous rejoindre</a>
+              <a href="#rejoindre">Nous contacter</a>
             </nav>
           </div>
 

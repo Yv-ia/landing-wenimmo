@@ -8,7 +8,6 @@ const NAV_LINKS = [
   { href: "#assurance", label: "Assurance" },
   { href: "#private-equity", label: "Private Equity" },
   { href: "#gfi-gfv", label: "GFI · GFV" },
-  { href: "#rejoindre", label: "Nous rejoindre" },
 ];
 
 export default function Header() {

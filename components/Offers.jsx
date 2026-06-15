@@ -46,6 +46,7 @@ const PE_PARTNERS = [
 const GFI_PARTNERS = [
   { name: "France Valley", url: "https://www.france-valley.com", logo: "/assets/partners/france-valley.svg" },
   { name: "Epicure AM", url: "https://epicuream.fr", logo: "/assets/partners/epicure-am.png" },
+  { name: "Sogenial", url: "https://www.sogenial.fr", logo: "/assets/partners/sogenial.png" },
 ];
 
 /* Grille de logos partenaires, cliquables vers leurs sites */
@@ -183,8 +184,6 @@ export default function Offers() {
           <div {...panelProps("gfi-gfv")}>
             <div className="offer-panel">
               <div className="offer-panel__figure">
-                <p className="offer-panel__num">100&nbsp;%</p>
-                <p className="offer-panel__numlabel">actifs réels et tangibles, de long terme</p>
                 <LogoGrid partners={GFI_PARTNERS} />
               </div>
               <div className="offer-panel__body">
