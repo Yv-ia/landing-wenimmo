@@ -5,6 +5,7 @@ import Steps from "@/components/Steps";
 import Stats from "@/components/Stats";
 import Offers from "@/components/Offers";
 import Testimonials from "@/components/Testimonials";
+import Blog from "@/components/Blog";
 import Team from "@/components/Team";
 import Footer from "@/components/Footer";
 
@@ -19,6 +20,7 @@ export default function Page() {
         <Stats />
         <Offers />
         <Testimonials />
+        <Blog />
         <Team />
       </main>
       <Footer />

@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Wenimmo — Libérez du temps pour vous concentrer sur l'essentiel : vos clients !",
+  title: "Wenimmo — Libérez du temps pour vos clients",
   description:
     "La plateforme de souscription dédiée aux conseillers en gestion de patrimoine. Une saisie unique, plusieurs produits souscrits en parallèle. Documents générés, signés et transmis aux sociétés de gestion.",
   icons: {

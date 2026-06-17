@@ -1,16 +1,44 @@
+"use client";
+
+import { useState } from "react";
+import CgpForm from "@/components/CgpForm";
+
 export default function Team() {
+  const [audience, setAudience] = useState("particulier");
+
   return (
     <section className="section team" id="rejoindre">
       <div className="container">
         <div className="section__head reveal">
-          <p className="section__kicker">Nous rejoindre</p>
+          <p className="section__kicker">Nous contacter</p>
           <h2 className="section__title">
-            Rejoignez Wenimmo, un réseau <em className="accent">à taille humaine</em>.
+            Échangeons avec <em className="accent">la bonne personne</em>.
           </h2>
         </div>
+
+        {/* Onglet : particulier / CGP */}
+        <div className="audience-tabs reveal" role="tablist" aria-label="Vous êtes">
+          <button
+            className={`audience-tab${audience === "particulier" ? " is-active" : ""}`}
+            role="tab"
+            aria-selected={audience === "particulier"}
+            onClick={() => setAudience("particulier")}
+          >
+            Je suis un particulier
+          </button>
+          <button
+            className={`audience-tab${audience === "cgp" ? " is-active" : ""}`}
+            role="tab"
+            aria-selected={audience === "cgp"}
+            onClick={() => setAudience("cgp")}
+          >
+            Je suis un CGP
+          </button>
+        </div>
+        {audience === "particulier" && (
         <div className="team__cols">
           {/* Carte sombre : back-office */}
-          <div className="team__panel team__panel--dark reveal">
+          <div className="team__panel team__panel--dark">
             <h3>
               Un back-office <em className="accent">à vos côtés</em>
             </h3>
@@ -35,14 +63,14 @@ export default function Team() {
                 </a>
               </li>
               <li>
-                <a href="mailto:contact@wenimmo.com" className="contact-row">
+                <a href="mailto:backoffice@wenimmo.com" className="contact-row">
                   <span className="contact-row__icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" strokeLinejoin="round" />
                       <path d="M22 6l-10 7L2 6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
-                  <span className="contact-row__value">contact@wenimmo.com</span>
+                  <span className="contact-row__value">backoffice@wenimmo.com</span>
                   <span className="contact-row__note">Réponse &lt; 4h</span>
                 </a>
               </li>
@@ -61,7 +89,7 @@ export default function Team() {
           </div>
 
           {/* Carte claire : vos interlocuteurs commerciaux */}
-          <div className="team__panel reveal">
+          <div className="team__panel">
             <h3>
               Vos interlocuteurs <em className="accent">commerciaux</em>
             </h3>
@@ -116,6 +144,34 @@ export default function Team() {
             </div>
           </div>
         </div>
+        )}
+
+        {/* Candidature CGP : même DA que la vue particulier (bloc sombre + bloc clair) */}
+        {audience === "cgp" && (
+        <div className="team__cols">
+          {/* Bloc sombre : pitch « rejoindre le réseau » */}
+          <div className="team__panel team__panel--dark">
+            <h3>
+              Envie de rejoindre <em className="accent">le réseau&nbsp;?</em>
+            </h3>
+            <p className="team__panel-lead">
+              Un onboarding sur mesure&nbsp;: inscription, formation, accompagnement au lancement —
+              vous pouvez compter sur nous.
+            </p>
+            <ul className="checklist checklist--light">
+              <li>Inscription en ligne rapide</li>
+              <li>Formation à la plateforme</li>
+              <li>Accompagnement au démarrage</li>
+              <li>Webinaires réguliers</li>
+            </ul>
+          </div>
+
+          {/* Bloc clair : formulaire de candidature */}
+          <div className="team__panel">
+            <CgpForm />
+          </div>
+        </div>
+        )}
       </div>
     </section>
   );

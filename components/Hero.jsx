@@ -10,9 +10,7 @@ export default function Hero() {
           Plateforme CGP &amp; courtiers · Foncièrement digitale
         </p>
         <h1 className="hero__title reveal">
-          Libérez du temps pour vous concentrer{" "}
-          <br className="br-desktop" />
-          sur l'essentiel&nbsp;: <em className="accent">vos clients&nbsp;!</em>
+          Libérez du temps pour <em className="accent">vos clients</em>
         </h1>
         <p className="hero__subtitle reveal">
           Une saisie unique, plusieurs produits souscrits en parallèle. Documents générés,
