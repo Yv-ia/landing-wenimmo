@@ -1164,6 +1164,38 @@ a.contact-row:hover { background: rgba(255, 255, 255, 0.14); transform: translat
 
 @media (max-width: 900px) { .team__cols { grid-template-columns: 1fr; } }
 
+/* Onglet particulier / CGP */
+.audience-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 999px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+.audience-tab {
+  appearance: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 10px 22px;
+  border-radius: 999px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.audience-tab:hover { color: var(--black); }
+.audience-tab.is-active { background: var(--primary); color: var(--white); }
+
+/* Formulaire CGP intégré dans le bloc clair (réutilise .team__panel) :
+   pas d'ombre ni de padding propres, le panneau s'en charge */
+.team__panel .join__form { box-shadow: none; padding: 0; }
+/* sur le bloc sombre du CGP, la liste à puces colle au bas comme dans la vue particulier */
+.team__panel--dark .checklist { margin-top: 4px; }
+
 /* ==========================================================================
    6. CONTACT CGP — section différenciée (fond marine)
    ========================================================================== */

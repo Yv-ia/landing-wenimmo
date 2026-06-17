@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react";
 
-const OFFER_LINKS = [
+const NAV_LINKS = [
+  { href: "#plateforme", label: "Notre plateforme" },
   { href: "#scpi", label: "SCPI" },
-  { href: "#assurance", label: "Assurance-vie" },
+  { href: "#assurance", label: "Assurance" },
   { href: "#private-equity", label: "Private Equity" },
   { href: "#gfi-gfv", label: "GFI · GFV" },
+  { href: "#blog", label: "Blog" },
 ];
 
 export default function Header() {
@@ -42,24 +44,11 @@ export default function Header() {
           {/* Menu rapproché des boutons de connexion (cf. feedback) */}
           <div className="header__right">
             <nav className="header__nav" aria-label="Navigation principale">
-              <a href="#plateforme" className="header__link">Notre plateforme</a>
-
-              {/* Déroulant « Nos offres » */}
-              <div className="header__dropdown">
-                <button className="header__link header__dropdown-trigger" aria-haspopup="true">
-                  Nos offres
-                  <svg className="header__chevron" viewBox="0 0 12 8" aria-hidden="true">
-                    <path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-                <div className="header__menu" role="menu">
-                  {OFFER_LINKS.map((link) => (
-                    <a key={link.href} href={link.href} className="header__menu-link" role="menuitem">
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              </div>
+              {NAV_LINKS.map((link) => (
+                <a key={link.href} href={link.href} className="header__link">
+                  {link.label}
+                </a>
+              ))}
             </nav>
             <div className="header__cta">
               <a href="#rejoindre" className="btn btn--ghost btn--sm">Nous contacter</a>
@@ -84,10 +73,8 @@ export default function Header() {
       {/* Menu mobile */}
       <div className={`mobile-menu${menuOpen ? " is-open" : ""}`}>
         <nav className="mobile-menu__nav" aria-label="Navigation mobile">
-          <a href="#plateforme" onClick={closeMenu}>Notre plateforme</a>
-          <p className="mobile-menu__group">Nos offres</p>
-          {OFFER_LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="mobile-menu__sublink" onClick={closeMenu}>
+          {NAV_LINKS.map((link) => (
+            <a key={link.href} href={link.href} onClick={closeMenu}>
               {link.label}
             </a>
           ))}
