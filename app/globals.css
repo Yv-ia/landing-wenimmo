@@ -1047,6 +1047,12 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
    5. ÉQUIPE / SALES — 2 cartes : back-office (sombre) / interlocuteurs
    ========================================================================== */
 .team { background: var(--bg-soft); }
+/* La section blog (masquée) séparait témoignages et équipe : sans elle, les
+   paddings se cumulaient (~240px de vide). On les réduit de moitié.
+   À retirer si la section blog revient. */
+.testimonials { padding-bottom: clamp(36px, 4.5vw, 60px); }
+.team { padding-top: clamp(36px, 4.5vw, 60px); }
+
 .team__cols {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -8,7 +8,8 @@ const NAV_LINKS = [
   { href: "#assurance", label: "Assurance" },
   { href: "#private-equity", label: "Private Equity" },
   { href: "#gfi-gfv", label: "GFI · GFV" },
-  { href: "#blog", label: "Blog" },
+  // Masqué tant que le blog n'a pas de vrai contenu — réactiver en décommentant.
+  // { href: "#blog", label: "Blog" },
 ];
 
 export default function Header() {
