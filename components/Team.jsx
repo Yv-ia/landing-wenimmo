@@ -19,20 +19,20 @@ export default function Team() {
         {/* Onglet : particulier / CGP */}
         <div className="audience-tabs reveal" role="tablist" aria-label="Vous êtes">
           <button
-            className={`audience-tab${audience === "particulier" ? " is-active" : ""}`}
-            role="tab"
-            aria-selected={audience === "particulier"}
-            onClick={() => setAudience("particulier")}
-          >
-            Je suis un particulier
-          </button>
-          <button
             className={`audience-tab${audience === "cgp" ? " is-active" : ""}`}
             role="tab"
             aria-selected={audience === "cgp"}
             onClick={() => setAudience("cgp")}
           >
             Je suis un CGP
+          </button>
+          <button
+            className={`audience-tab${audience === "particulier" ? " is-active" : ""}`}
+            role="tab"
+            aria-selected={audience === "particulier"}
+            onClick={() => setAudience("particulier")}
+          >
+            Je suis un particulier
           </button>
         </div>
         {audience === "particulier" && (
