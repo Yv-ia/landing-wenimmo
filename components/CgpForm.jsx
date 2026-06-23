@@ -56,7 +56,7 @@ export default function CgpForm() {
         <h3 className="join__form-title">Devenez partenaire CGP</h3>
         <button
           type="button"
-          className="btn btn--primary btn--lg btn--block"
+          className="btn btn--primary btn--lg"
           onClick={() => setShowForm(true)}
         >
           Nous contacter <span className="btn__arrow">→</span>
