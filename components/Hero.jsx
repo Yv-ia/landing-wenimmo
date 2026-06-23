@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="container hero__content">
         <p className="hero__badge reveal">
           <span className="hero__badge-dot"></span>
-          Plateforme CGP &amp; courtiers · Foncièrement digitale
+          Plateforme CGP &amp; courtiers
         </p>
         <h1 className="hero__title reveal">
           Libérez du temps pour <em className="accent">vos clients</em>

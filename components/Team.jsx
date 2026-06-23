@@ -19,20 +19,20 @@ export default function Team() {
         {/* Onglet : particulier / CGP */}
         <div className="audience-tabs reveal" role="tablist" aria-label="Vous êtes">
           <button
-            className={`audience-tab${audience === "particulier" ? " is-active" : ""}`}
-            role="tab"
-            aria-selected={audience === "particulier"}
-            onClick={() => setAudience("particulier")}
-          >
-            Je suis un particulier
-          </button>
-          <button
             className={`audience-tab${audience === "cgp" ? " is-active" : ""}`}
             role="tab"
             aria-selected={audience === "cgp"}
             onClick={() => setAudience("cgp")}
           >
             Je suis un CGP
+          </button>
+          <button
+            className={`audience-tab${audience === "particulier" ? " is-active" : ""}`}
+            role="tab"
+            aria-selected={audience === "particulier"}
+            onClick={() => setAudience("particulier")}
+          >
+            Je suis un particulier
           </button>
         </div>
         {audience === "particulier" && (
@@ -97,7 +97,6 @@ export default function Team() {
               Une équipe dédiée par univers d'investissement, joignable directement.
             </p>
 
-            {/* TODO : numéros de téléphone directs à renseigner */}
             <div className="persons-group">
               <p className="persons-group__head">
                 FIA <span>— SCPI · Private Equity · GFI / GFV</span>
@@ -106,22 +105,18 @@ export default function Team() {
                 <li className="person">
                   <span className="person__avatar">BF</span>
                   <strong>Benjamin Flottes de Pouzols</strong>
-                  <span className="person__phone">06 00 00 00 00</span>
                 </li>
                 <li className="person">
                   <span className="person__avatar">LT</span>
                   <strong>Linda Taillefer</strong>
-                  <span className="person__phone">06 00 00 00 00</span>
                 </li>
                 <li className="person">
                   <span className="person__avatar">IS</span>
                   <strong>Illona Stanescu</strong>
-                  <span className="person__phone">06 00 00 00 00</span>
                 </li>
                 <li className="person">
                   <span className="person__avatar">PL</span>
                   <strong>Patrick Lemaire</strong>
-                  <span className="person__phone">06 00 00 00 00</span>
                 </li>
               </ul>
             </div>
@@ -133,12 +128,10 @@ export default function Team() {
                 <li className="person">
                   <span className="person__avatar">FA</span>
                   <strong>Franck Accambray</strong>
-                  <span className="person__phone">06 00 00 00 00</span>
                 </li>
                 <li className="person">
                   <span className="person__avatar">YA</span>
                   <strong>Yohann Aimée</strong>
-                  <span className="person__phone">06 00 00 00 00</span>
                 </li>
               </ul>
             </div>

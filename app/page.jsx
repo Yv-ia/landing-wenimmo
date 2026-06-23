@@ -20,7 +20,8 @@ export default function Page() {
         <Stats />
         <Offers />
         <Testimonials />
-        <Blog />
+        {/* Section blog masquée tant que le contenu est du mock — réactiver en décommentant. */}
+        {/* <Blog /> */}
         <Team />
       </main>
       <Footer />
