@@ -49,6 +49,10 @@ export async function POST(request) {
       { status: 400 }
     );
   }
+  // N° ORIAS facultatif ; s'il est fourni, il doit comporter 8 chiffres.
+  if (orias && orias.replace(/\D/g, "").length !== 8) {
+    return Response.json({ ok: false, error: "N° ORIAS invalide." }, { status: 400 });
+  }
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
