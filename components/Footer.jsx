@@ -1,3 +1,5 @@
+import CopyEmail from "./CopyEmail";
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -16,7 +18,7 @@ export default function Footer() {
             <p className="footer__contact">
               <a href="tel:+33670886334">06 70 88 63 34</a>
               <br />
-              <a href="mailto:contact@wenimmo.com">contact@wenimmo.com</a>
+              <CopyEmail email="contact@wenimmo.com" />
             </p>
             <div className="footer__social">
               <a
