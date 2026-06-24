@@ -4,44 +4,55 @@ import { useState } from "react";
 
 /**
  * Formulaire de contact CGP (devenir partenaire).
- * En attendant un backend / CRM, le formulaire ouvre un email pré-rempli
- * vers contact@wenimmo.com et affiche un message de confirmation.
+ * Les soumissions sont envoyées par email via la route /api/contact (Resend).
  */
 export default function CgpForm() {
   const [invalid, setInvalid] = useState({});
-  const [success, setSuccess] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    // Validation simple des champs requis
+    const payload = {
+      lastname: String(data.get("lastname") || "").trim(),
+      firstname: String(data.get("firstname") || "").trim(),
+      email: String(data.get("email") || "").trim(),
+      phone: String(data.get("phone") || "").trim(),
+      orias: String(data.get("orias") || "").trim(),
+      message: String(data.get("message") || "").trim(),
+    };
+
+    // Validation simple des champs requis (doublée côté serveur)
     const errors = {};
     ["lastname", "firstname", "email", "phone"].forEach((field) => {
-      if (!String(data.get(field) || "").trim()) errors[field] = true;
+      if (!payload[field]) errors[field] = true;
     });
-    const email = String(data.get("email") || "");
-    if (email && !/^\S+@\S+\.\S+$/.test(email)) errors.email = true;
+    if (payload.email && !/^\S+@\S+\.\S+$/.test(payload.email)) errors.email = true;
 
     setInvalid(errors);
     if (Object.keys(errors).length > 0) return;
 
-    const subject = encodeURIComponent(
-      `Demande de partenariat CGP — ${data.get("firstname")} ${data.get("lastname")}`
-    );
-    const body = encodeURIComponent(
-      `Nom : ${data.get("lastname")}` +
-        `\nPrénom : ${data.get("firstname")}` +
-        `\nEmail professionnel : ${data.get("email")}` +
-        `\nTéléphone : ${data.get("phone")}` +
-        `\nN° ORIAS : ${data.get("orias") || "—"}` +
-        `\n\nMessage :\n${data.get("message") || "—"}`
-    );
-    window.location.href = `mailto:contact@wenimmo.com?subject=${subject}&body=${body}`;
-
-    setSuccess(true);
-    form.reset();
+    setStatus("sending");
+    setErrorMsg("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok || !result.ok) {
+        throw new Error(result.error || "L'envoi a échoué. Merci de réessayer plus tard.");
+      }
+      setStatus("success");
+      form.reset();
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(err.message || "L'envoi a échoué. Merci de réessayer plus tard.");
+    }
   };
 
   const fieldClass = (name) => (invalid[name] ? "is-invalid" : undefined);
@@ -114,14 +125,25 @@ export default function CgpForm() {
         </label>
         <textarea id="message" name="message" rows={3}></textarea>
       </div>
-      <button type="submit" className="btn btn--primary btn--lg btn--block">
-        Envoyer <span className="btn__arrow">→</span>
+      <button
+        type="submit"
+        className="btn btn--primary btn--lg btn--block"
+        disabled={status === "sending"}
+      >
+        {status === "sending" ? (
+          "Envoi en cours…"
+        ) : (
+          <>
+            Envoyer <span className="btn__arrow">→</span>
+          </>
+        )}
       </button>
-      {success && (
+      {status === "success" && (
         <p className="form__success">
-          Merci&nbsp;! Votre demande a bien été préparée — notre équipe revient vers vous rapidement.
+          Merci&nbsp;! Votre demande a bien été envoyée — notre équipe revient vers vous rapidement.
         </p>
       )}
+      {status === "error" && <p className="form__error">{errorMsg}</p>}
     </form>
   );
 }
