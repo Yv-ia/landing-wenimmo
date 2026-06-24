@@ -6,8 +6,11 @@ import { useState } from "react";
 //  - Email : format standard nom@domaine.tld.
 //  - Téléphone : uniquement des chiffres (séparateurs d'affichage tolérés),
 //    10 à 15 chiffres (numéro français ou international).
+//  - N° ORIAS : facultatif, mais s'il est renseigné c'est un numéro à
+//    8 chiffres (séparateurs d'affichage tolérés).
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_DISALLOWED_RE = /[^\d\s+().-]/g;
+const ORIAS_DISALLOWED_RE = /[^\d\s]/g;
 
 function isValidEmail(value) {
   return EMAIL_RE.test(value);
@@ -16,6 +19,10 @@ function isValidEmail(value) {
 function isValidPhone(value) {
   const digits = value.replace(/\D/g, "");
   return digits.length >= 10 && digits.length <= 15;
+}
+
+function isValidOrias(value) {
+  return value.replace(/\D/g, "").length === 8;
 }
 
 /**
@@ -51,6 +58,8 @@ export default function CgpForm() {
     if (!payload.phone) errors.phone = "Merci d'indiquer votre téléphone.";
     else if (!isValidPhone(payload.phone))
       errors.phone = "Numéro invalide : uniquement des chiffres (10 minimum).";
+    if (payload.orias && !isValidOrias(payload.orias))
+      errors.orias = "N° ORIAS invalide : 8 chiffres (ex. : 12 345 678).";
 
     setInvalid(errors);
     if (Object.keys(errors).length > 0) return;
@@ -85,6 +94,13 @@ export default function CgpForm() {
     const cleaned = e.target.value.replace(PHONE_DISALLOWED_RE, "");
     if (cleaned !== e.target.value) e.target.value = cleaned;
     clearError("phone");
+  };
+
+  // N° ORIAS : on ne conserve que les chiffres et les espaces de séparation.
+  const handleOriasInput = (e) => {
+    const cleaned = e.target.value.replace(ORIAS_DISALLOWED_RE, "");
+    if (cleaned !== e.target.value) e.target.value = cleaned;
+    clearError("orias");
   };
 
   return (
@@ -153,7 +169,16 @@ export default function CgpForm() {
           <label htmlFor="orias">
             N° ORIAS <span className="form__optional">(si disponible)</span>
           </label>
-          <input type="text" id="orias" name="orias" placeholder="XX XXX XXX" />
+          <input
+            type="text"
+            id="orias"
+            name="orias"
+            inputMode="numeric"
+            placeholder="XX XXX XXX"
+            className={fieldClass("orias")}
+            onInput={handleOriasInput}
+          />
+          {invalid.orias && <p className="form__field-error">{invalid.orias}</p>}
         </div>
       </div>
       <div className="form__field">
