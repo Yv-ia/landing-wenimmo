@@ -2,9 +2,21 @@
 
 import { useState } from "react";
 import CgpForm from "@/components/CgpForm";
+import { copyToClipboard } from "@/lib/copyToClipboard";
 
 export default function Team() {
   const [audience, setAudience] = useState("cgp");
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const copyBackoffice = async () => {
+    try {
+      await copyToClipboard("backoffice@wenimmo.com");
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    } catch {
+      // En cas d'échec on ne casse rien : l'adresse reste lisible
+    }
+  };
 
   return (
     <section className="section team" id="rejoindre">
@@ -63,7 +75,13 @@ export default function Team() {
                 </a>
               </li>
               <li>
-                <a href="mailto:backoffice@wenimmo.com" className="contact-row">
+                <button
+                  type="button"
+                  className="contact-row contact-row--button"
+                  onClick={copyBackoffice}
+                  title="Cliquer pour copier l'adresse e-mail"
+                  aria-label="Copier l'adresse e-mail backoffice@wenimmo.com"
+                >
                   <span className="contact-row__icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" strokeLinejoin="round" />
@@ -71,8 +89,13 @@ export default function Team() {
                     </svg>
                   </span>
                   <span className="contact-row__value">backoffice@wenimmo.com</span>
-                  <span className="contact-row__note">Réponse &lt; 4h</span>
-                </a>
+                  <span
+                    className={`contact-row__note${emailCopied ? " contact-row__note--copied" : ""}`}
+                    aria-live="polite"
+                  >
+                    {emailCopied ? "Copié !" : "Réponse < 4h"}
+                  </span>
+                </button>
               </li>
               <li>
                 <span className="contact-row">

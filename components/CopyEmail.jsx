@@ -1,25 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { copyToClipboard } from "@/lib/copyToClipboard";
 
 export default function CopyEmail({ email }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
     try {
-      if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(email);
-      } else {
-        // Fallback pour les navigateurs sans Clipboard API (contexte non sécurisé)
-        const ta = document.createElement("textarea");
-        ta.value = email;
-        ta.style.position = "fixed";
-        ta.style.opacity = "0";
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        document.body.removeChild(ta);
-      }
+      await copyToClipboard(email);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {

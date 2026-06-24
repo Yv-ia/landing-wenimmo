@@ -1076,7 +1076,9 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   color: var(--white);
   transition: background 0.25s ease, transform 0.25s ease;
 }
-a.contact-row:hover { background: rgba(255, 255, 255, 0.14); transform: translateX(4px); }
+a.contact-row:hover,
+button.contact-row:hover { background: rgba(255, 255, 255, 0.14); transform: translateX(4px); }
+.contact-row--button { width: 100%; font: inherit; text-align: left; cursor: pointer; }
 .contact-row__icon {
   width: 34px; height: 34px;
   border-radius: 9px;
@@ -1088,7 +1090,8 @@ a.contact-row:hover { background: rgba(255, 255, 255, 0.14); transform: translat
 }
 .contact-row__icon svg { width: 17px; height: 17px; }
 .contact-row__value { font-size: 15px; font-weight: 600; flex: 1; }
-.contact-row__note { font-size: 12.5px; color: rgba(255, 255, 255, 0.55); }
+.contact-row__note { font-size: 12.5px; color: rgba(255, 255, 255, 0.55); transition: color 0.2s ease; }
+.contact-row__note--copied { color: #4ade80; }
 
 /* Interlocuteurs commerciaux : groupes par univers + personnes */
 .persons-group + .persons-group { margin-top: 26px; }
