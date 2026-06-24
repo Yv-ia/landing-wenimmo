@@ -21,7 +21,7 @@ export default function PolitiqueConfidentialitePage() {
       <p>
         Le responsable du traitement est <strong>Wenimmo</strong>, dont le siège social est situé
         26, rue Poncelet, 75017 Paris. Pour toute question relative à vos données, vous pouvez nous
-        contacter à l'adresse <a href="mailto:contact@wenimmo.com">contact@wenimmo.com</a>.
+        contacter à l'adresse <a href="mailto:backoffice@wenimmo.com">backoffice@wenimmo.com</a>.
       </p>
 
       <h2>2. Données que nous collectons</h2>
@@ -124,7 +124,7 @@ export default function PolitiqueConfidentialitePage() {
       </p>
       <p>
         Pour exercer ces droits, écrivez-nous à{" "}
-        <a href="mailto:contact@wenimmo.com">contact@wenimmo.com</a>. Une preuve d'identité pourra
+        <a href="mailto:backoffice@wenimmo.com">backoffice@wenimmo.com</a>. Une preuve d'identité pourra
         vous être demandée. Nous nous engageons à répondre dans un délai d'un mois.
       </p>
       <p>
@@ -156,7 +156,7 @@ export default function PolitiqueConfidentialitePage() {
       <h2>12. Contact</h2>
       <p>
         Pour toute question relative à la présente politique ou au traitement de vos données, vous
-        pouvez nous écrire à <a href="mailto:contact@wenimmo.com">contact@wenimmo.com</a> ou par
+        pouvez nous écrire à <a href="mailto:backoffice@wenimmo.com">backoffice@wenimmo.com</a> ou par
         courrier à l'adresse du siège social indiquée ci-dessus.
       </p>
     </LegalLayout>

@@ -37,7 +37,7 @@ export default function MentionsLegalesPage() {
         </dd>
         <dt>Adresse e-mail</dt>
         <dd>
-          <a href="mailto:contact@wenimmo.com">contact@wenimmo.com</a>
+          <a href="mailto:backoffice@wenimmo.com">backoffice@wenimmo.com</a>
         </dd>
       </dl>
 
