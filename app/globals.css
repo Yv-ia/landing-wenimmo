@@ -1336,8 +1336,6 @@ a.contact-row:hover { background: rgba(255, 255, 255, 0.14); transform: translat
   transition: color 0.2s ease;
 }
 .copy-email:hover .copy-email__status { color: rgba(255, 255, 255, 0.7); }
-.copy-email__status svg { width: 15px; height: 15px; }
-.copy-email__address { border-bottom: 1px dotted rgba(255, 255, 255, 0.3); }
 /* État « copié » */
 .copy-email[data-copied="true"] .copy-email__status,
 .copy-email[data-copied="true"]:hover .copy-email__status {

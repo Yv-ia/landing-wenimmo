@@ -37,21 +37,11 @@ export default function CopyEmail({ email }) {
       aria-label={`Copier l'adresse e-mail ${email}`}
     >
       <span className="copy-email__address">{email}</span>
-      <span className="copy-email__status" aria-live="polite">
-        {copied ? (
-          <>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-              <path d="M5 13l4 4L19 7" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Copié&nbsp;!
-          </>
-        ) : (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-            <rect x="9" y="9" width="11" height="11" rx="2" strokeWidth="2" />
-            <path d="M5 15V5a2 2 0 0 1 2-2h10" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-        )}
-      </span>
+      {copied && (
+        <span className="copy-email__status" aria-live="polite">
+          Copié&nbsp;!
+        </span>
+      )}
     </button>
   );
 }
