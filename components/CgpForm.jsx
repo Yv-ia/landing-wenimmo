@@ -2,12 +2,28 @@
 
 import { useState } from "react";
 
+// Validation côté client (doublée côté serveur dans /api/contact).
+//  - Email : format standard nom@domaine.tld.
+//  - Téléphone : uniquement des chiffres (séparateurs d'affichage tolérés),
+//    10 à 15 chiffres (numéro français ou international).
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const PHONE_DISALLOWED_RE = /[^\d\s+().-]/g;
+
+function isValidEmail(value) {
+  return EMAIL_RE.test(value);
+}
+
+function isValidPhone(value) {
+  const digits = value.replace(/\D/g, "");
+  return digits.length >= 10 && digits.length <= 15;
+}
+
 /**
  * Formulaire de contact CGP (devenir partenaire).
  * Les soumissions sont envoyées par email via la route /api/contact (Resend).
  */
 export default function CgpForm() {
-  const [invalid, setInvalid] = useState({});
+  const [invalid, setInvalid] = useState({}); // { champ: "message d'erreur" }
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -25,12 +41,16 @@ export default function CgpForm() {
       message: String(data.get("message") || "").trim(),
     };
 
-    // Validation simple des champs requis (doublée côté serveur)
+    // Validation des champs requis + format (doublée côté serveur).
     const errors = {};
-    ["lastname", "firstname", "email", "phone"].forEach((field) => {
-      if (!payload[field]) errors[field] = true;
-    });
-    if (payload.email && !/^\S+@\S+\.\S+$/.test(payload.email)) errors.email = true;
+    if (!payload.lastname) errors.lastname = "Merci d'indiquer votre nom.";
+    if (!payload.firstname) errors.firstname = "Merci d'indiquer votre prénom.";
+    if (!payload.email) errors.email = "Merci d'indiquer votre email.";
+    else if (!isValidEmail(payload.email))
+      errors.email = "Adresse email invalide (ex. : nom@cabinet.fr).";
+    if (!payload.phone) errors.phone = "Merci d'indiquer votre téléphone.";
+    else if (!isValidPhone(payload.phone))
+      errors.phone = "Numéro invalide : uniquement des chiffres (10 minimum).";
 
     setInvalid(errors);
     if (Object.keys(errors).length > 0) return;
@@ -56,7 +76,16 @@ export default function CgpForm() {
   };
 
   const fieldClass = (name) => (invalid[name] ? "is-invalid" : undefined);
-  const clearError = (name) => setInvalid((prev) => ({ ...prev, [name]: false }));
+  const clearError = (name) =>
+    setInvalid((prev) => (prev[name] ? { ...prev, [name]: undefined } : prev));
+
+  // Téléphone : on retire à la volée tout caractère qui n'est pas un chiffre
+  // ou un séparateur courant (espace, +, -, ., parenthèses).
+  const handlePhoneInput = (e) => {
+    const cleaned = e.target.value.replace(PHONE_DISALLOWED_RE, "");
+    if (cleaned !== e.target.value) e.target.value = cleaned;
+    clearError("phone");
+  };
 
   return (
     <form className="join__form" onSubmit={handleSubmit} noValidate>
@@ -73,6 +102,7 @@ export default function CgpForm() {
             className={fieldClass("lastname")}
             onInput={() => clearError("lastname")}
           />
+          {invalid.lastname && <p className="form__field-error">{invalid.lastname}</p>}
         </div>
         <div className="form__field">
           <label htmlFor="firstname">Prénom *</label>
@@ -85,6 +115,7 @@ export default function CgpForm() {
             className={fieldClass("firstname")}
             onInput={() => clearError("firstname")}
           />
+          {invalid.firstname && <p className="form__field-error">{invalid.firstname}</p>}
         </div>
       </div>
       <div className="form__field">
@@ -93,11 +124,14 @@ export default function CgpForm() {
           type="email"
           id="email"
           name="email"
+          inputMode="email"
           autoComplete="email"
+          placeholder="nom@cabinet.fr"
           required
           className={fieldClass("email")}
           onInput={() => clearError("email")}
         />
+        {invalid.email && <p className="form__field-error">{invalid.email}</p>}
       </div>
       <div className="form__row">
         <div className="form__field">
@@ -106,11 +140,14 @@ export default function CgpForm() {
             type="tel"
             id="phone"
             name="phone"
+            inputMode="tel"
             autoComplete="tel"
+            placeholder="06 12 34 56 78"
             required
             className={fieldClass("phone")}
-            onInput={() => clearError("phone")}
+            onInput={handlePhoneInput}
           />
+          {invalid.phone && <p className="form__field-error">{invalid.phone}</p>}
         </div>
         <div className="form__field">
           <label htmlFor="orias">

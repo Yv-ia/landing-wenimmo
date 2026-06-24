@@ -10,7 +10,7 @@ export const runtime = "nodejs";
 const FROM = process.env.CONTACT_FROM_EMAIL || "Wenimmo <onboarding@resend.dev>";
 const TO = process.env.CONTACT_TO_EMAIL || "contact@wenimmo.com";
 
-const EMAIL_RE = /^\S+@\S+\.\S+$/;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export async function POST(request) {
   let body;
@@ -41,6 +41,13 @@ export async function POST(request) {
   }
   if (!EMAIL_RE.test(email)) {
     return Response.json({ ok: false, error: "Adresse email invalide." }, { status: 400 });
+  }
+  const phoneDigits = phone.replace(/\D/g, "");
+  if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+    return Response.json(
+      { ok: false, error: "Numéro de téléphone invalide." },
+      { status: 400 }
+    );
   }
 
   const apiKey = process.env.RESEND_API_KEY;
