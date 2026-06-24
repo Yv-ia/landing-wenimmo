@@ -4,7 +4,7 @@ import { useState } from "react";
 import CgpForm from "@/components/CgpForm";
 
 export default function Team() {
-  const [audience, setAudience] = useState("particulier");
+  const [audience, setAudience] = useState("cgp");
 
   return (
     <section className="section team" id="rejoindre">
