@@ -18,7 +18,7 @@ export default function Footer() {
             <p className="footer__contact">
               <a href="tel:+33670886334">06 70 88 63 34</a>
               <br />
-              <CopyEmail email="contact@wenimmo.com" />
+              <CopyEmail email="backoffice@wenimmo.com" />
             </p>
             <div className="footer__social">
               <a
