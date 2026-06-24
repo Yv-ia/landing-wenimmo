@@ -64,8 +64,8 @@ export default function Footer() {
               RCS Paris 883&nbsp;127&nbsp;946
             </p>
             <nav className="footer__nav" aria-label="Liens légaux">
-              <a href="#">Mentions légales</a>
-              <a href="#">Politique de confidentialité</a>
+              <a href="/mentions-legales">Mentions légales</a>
+              <a href="/politique-de-confidentialite">Politique de confidentialité</a>
             </nav>
           </div>
         </div>
