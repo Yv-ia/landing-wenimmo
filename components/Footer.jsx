@@ -1,3 +1,5 @@
+import CopyEmail from "./CopyEmail";
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -16,7 +18,7 @@ export default function Footer() {
             <p className="footer__contact">
               <a href="tel:+33670886334">06 70 88 63 34</a>
               <br />
-              <a href="mailto:contact@wenimmo.com">contact@wenimmo.com</a>
+              <CopyEmail email="contact@wenimmo.com" />
             </p>
             <div className="footer__social">
               <a
@@ -62,8 +64,8 @@ export default function Footer() {
               RCS Paris 883&nbsp;127&nbsp;946
             </p>
             <nav className="footer__nav" aria-label="Liens légaux">
-              <a href="#">Mentions légales</a>
-              <a href="#">Politique de confidentialité</a>
+              <a href="/mentions-legales">Mentions légales</a>
+              <a href="/politique-de-confidentialite">Politique de confidentialité</a>
             </nav>
           </div>
         </div>

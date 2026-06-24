@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from "react";
 
+// Liens racine-relatifs (/#…) pour fonctionner aussi depuis les sous-pages (mentions légales…)
 const NAV_LINKS = [
-  { href: "#plateforme", label: "Notre plateforme" },
-  { href: "#scpi", label: "SCPI" },
-  { href: "#assurance", label: "Assurance" },
-  { href: "#private-equity", label: "Private Equity" },
-  { href: "#gfi-gfv", label: "GFI · GFV" },
+  { href: "/#plateforme", label: "Notre plateforme" },
+  { href: "/#scpi", label: "SCPI" },
+  { href: "/#assurance", label: "Assurance" },
+  { href: "/#private-equity", label: "Private Equity" },
+  { href: "/#gfi-gfv", label: "GFI · GFV" },
   // Masqué tant que le blog n'a pas de vrai contenu — réactiver en décommentant.
   // { href: "#blog", label: "Blog" },
 ];
@@ -37,7 +38,7 @@ export default function Header() {
     <>
       <header className={`header${scrolled ? " is-scrolled" : ""}${menuOpen ? " menu-open" : ""}`} id="header">
         <div className="container header__inner">
-          <a href="#" className="header__logo" aria-label="Wenimmo — Accueil">
+          <a href="/" className="header__logo" aria-label="Wenimmo — Accueil">
             <img src="/assets/logos/logo-wenimmo-dark.svg" alt="Wenimmo" className="header__logo-img header__logo-img--dark" />
             <img src="/assets/logos/logo-wenimmo.svg" alt="Wenimmo" className="header__logo-img header__logo-img--light" />
           </a>
@@ -52,7 +53,7 @@ export default function Header() {
               ))}
             </nav>
             <div className="header__cta">
-              <a href="#rejoindre" className="btn btn--ghost btn--sm">Nous contacter</a>
+              <a href="/#rejoindre" className="btn btn--ghost btn--sm">Nous contacter</a>
               <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--sm">
                 Connexion →
               </a>
@@ -81,7 +82,7 @@ export default function Header() {
           ))}
         </nav>
         <div className="mobile-menu__cta">
-          <a href="#rejoindre" className="btn btn--ghost" onClick={closeMenu}>Nous contacter</a>
+          <a href="/#rejoindre" className="btn btn--ghost" onClick={closeMenu}>Nous contacter</a>
           <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary" onClick={closeMenu}>
             Connexion →
           </a>
