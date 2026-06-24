@@ -20,13 +20,9 @@ export default function MentionsLegalesPage() {
         <dt>Dénomination</dt>
         <dd>Wenimmo</dd>
         <dt>Forme juridique</dt>
-        <dd>
-          <Todo>forme juridique (ex. SAS)</Todo>
-        </dd>
+        <dd>Société par Actions Simplifiée (SAS)</dd>
         <dt>Capital social</dt>
-        <dd>
-          <Todo>montant du capital social</Todo>
-        </dd>
+        <dd>2 200 €</dd>
         <dt>Siège social</dt>
         <dd>26, rue Poncelet, 75017 Paris, France</dd>
         <dt>RCS</dt>
@@ -34,9 +30,7 @@ export default function MentionsLegalesPage() {
         <dt>SIREN</dt>
         <dd>883 127 946</dd>
         <dt>N° TVA intracommunautaire</dt>
-        <dd>
-          <Todo>n° TVA (FR…)</Todo>
-        </dd>
+        <dd>FR55883127946</dd>
         <dt>Téléphone</dt>
         <dd>
           <a href="tel:+33670886334">06 70 88 63 34</a>
@@ -49,8 +43,8 @@ export default function MentionsLegalesPage() {
 
       <h2>2. Directeur de la publication</h2>
       <p>
-        Le directeur de la publication est <Todo>nom et qualité du représentant légal</Todo>, en sa
-        qualité de représentant légal de la société.
+        Le directeur de la publication est Monsieur Franck Accambray, en sa qualité de Président de
+        la société.
       </p>
 
       <h2>3. Activité réglementée et immatriculation</h2>
@@ -66,19 +60,27 @@ export default function MentionsLegalesPage() {
         </a>
         .
       </p>
-      <p>
-        Wenimmo exerce les activités suivantes :{" "}
-        <Todo>
-          catégories ORIAS exactes — ex. Conseiller en Investissements Financiers (CIF), Courtier en
-          assurance (COA), Intermédiaire en opérations de banque et en services de paiement (IOBSP)
-        </Todo>
-        .
-      </p>
+      <p>Wenimmo est immatriculée dans les catégories suivantes :</p>
+      <ul>
+        <li>
+          <strong>Conseiller en Investissements Financiers (CIF)</strong>.
+        </li>
+        <li>
+          <strong>Courtier d'assurance (COA)</strong>, à titre accessoire.
+        </li>
+        <li>
+          <strong>
+            Courtier en opérations de banque et en services de paiement (COBSP)
+          </strong>
+          , à titre accessoire.
+        </li>
+      </ul>
+      <p>Ces activités d'intermédiation sont exercées sans autorisation d'encaissement de fonds.</p>
       <p>
         En qualité de Conseiller en Investissements Financiers, Wenimmo est adhérente de
         l'association professionnelle{" "}
-        <Todo>nom de l'association agréée AMF (ex. CNCGP, ANACOFI-CIF, La Compagnie des CGP)</Todo>,
-        agréée par l'Autorité des marchés financiers.
+        <strong>CNCGP — Chambre Nationale des Conseils en Gestion de Patrimoine</strong>, agréée par
+        l'Autorité des marchés financiers.
       </p>
       <p>Les activités de Wenimmo sont soumises au contrôle des autorités suivantes :</p>
       <ul>
