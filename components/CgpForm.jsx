@@ -10,7 +10,6 @@ import { useState } from "react";
 export default function CgpForm() {
   const [invalid, setInvalid] = useState({});
   const [success, setSuccess] = useState(false);
-  const [showForm, setShowForm] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,23 +46,6 @@ export default function CgpForm() {
 
   const fieldClass = (name) => (invalid[name] ? "is-invalid" : undefined);
   const clearError = (name) => setInvalid((prev) => ({ ...prev, [name]: false }));
-
-  // Tant que l'utilisateur n'a pas cliqué : on n'affiche que le titre + un CTA.
-  // Le formulaire complet apparaît au clic sur « Nous contacter ».
-  if (!showForm) {
-    return (
-      <div className="join__form join__form--collapsed">
-        <h3 className="join__form-title">Devenez partenaire CGP</h3>
-        <button
-          type="button"
-          className="btn btn--primary btn--lg"
-          onClick={() => setShowForm(true)}
-        >
-          Nous contacter <span className="btn__arrow">→</span>
-        </button>
-      </div>
-    );
-  }
 
   return (
     <form className="join__form" onSubmit={handleSubmit} noValidate>
