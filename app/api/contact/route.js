@@ -8,7 +8,7 @@ export const runtime = "nodejs";
 //  - CONTACT_FROM_EMAIL doit utiliser un domaine vérifié dans Resend.
 //  - CONTACT_TO_EMAIL est la boîte qui reçoit les demandes de partenariat.
 const FROM = process.env.CONTACT_FROM_EMAIL || "Wenimmo <onboarding@resend.dev>";
-const TO = process.env.CONTACT_TO_EMAIL || "contact@wenimmo.com";
+const TO = process.env.CONTACT_TO_EMAIL || "backoffice@wenimmo.com";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
