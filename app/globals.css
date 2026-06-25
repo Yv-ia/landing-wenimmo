@@ -1051,6 +1051,7 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: clamp(28px, 3.4vw, 44px);
+  min-width: 0;
 }
 .team__panel h3 { font-size: 23px; margin-bottom: 14px; }
 .team__panel-lead { font-size: 15px; margin-bottom: 28px; }
@@ -1075,6 +1076,7 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--white);
   transition: background 0.25s ease, transform 0.25s ease;
+  min-width: 0;
 }
 a.contact-row:hover,
 button.contact-row:hover { background: rgba(255, 255, 255, 0.14); transform: translateX(4px); }
@@ -1089,9 +1091,13 @@ button.contact-row:hover { background: rgba(255, 255, 255, 0.14); transform: tra
   flex-shrink: 0;
 }
 .contact-row__icon svg { width: 17px; height: 17px; }
-.contact-row__value { font-size: 15px; font-weight: 600; flex: 1; }
+.contact-row__value { font-size: 15px; font-weight: 600; flex: 1; min-width: 0; overflow-wrap: anywhere; }
 .contact-row__note { font-size: 12.5px; color: rgba(255, 255, 255, 0.55); transition: color 0.2s ease; }
 .contact-row__note--copied { color: #4ade80; }
+@media (max-width: 520px) {
+  .contact-row { gap: 12px; padding-inline: 14px; }
+  .contact-row__note { max-width: 84px; text-align: right; line-height: 1.25; }
+}
 
 /* Interlocuteurs commerciaux : groupes par univers + personnes */
 .persons-group + .persons-group { margin-top: 26px; }
@@ -1129,8 +1135,30 @@ button.contact-row:hover { background: rgba(255, 255, 255, 0.14); transform: tra
   place-items: center;
   flex-shrink: 0;
 }
+.person__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
 .person strong { font-size: 14.5px; color: var(--black); flex: 1; min-width: 0; }
-.person__phone { margin-left: auto; font-size: 13.5px; color: var(--text-light); white-space: nowrap; }
+.person__phone {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  font-size: 13.5px;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+.person__phone a { color: var(--text-light); font-weight: 600; }
+.person__phone a:hover { color: var(--primary); text-decoration: underline; }
+@media (max-width: 640px) {
+  .person__content { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .person__phone { margin-left: 0; align-items: flex-start; }
+}
 @media (max-width: 420px) {
   .person__phone { font-size: 12px; }
 }

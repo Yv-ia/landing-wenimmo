@@ -127,19 +127,43 @@ export default function Team() {
               <ul className="persons">
                 <li className="person">
                   <span className="person__avatar">BF</span>
-                  <strong>Benjamin Flottes de Pouzols</strong>
+                  <div className="person__content">
+                    <strong>Benjamin Flottes de Pouzols</strong>
+                    <span className="person__phone">
+                      <a href="tel:+33670886334">06 70 88 63 34</a>
+                    </span>
+                  </div>
                 </li>
                 <li className="person">
                   <span className="person__avatar">LT</span>
-                  <strong>Linda Taillefer</strong>
+                  <div className="person__content">
+                    <strong>Linda Taillefer</strong>
+                    <span className="person__phone">
+                      <a href="tel:+33619592201">06 19 59 22 01</a>
+                    </span>
+                  </div>
+                </li>
+                <li className="person">
+                  <span className="person__avatar">CC</span>
+                  <div className="person__content">
+                    <strong>Caroline CHAYEB</strong>
+                    <span className="person__phone">
+                      <a href="tel:+33607672635">+33 (6) 07 67 26 35</a>
+                      <a href="tel:+33784586502">+33 (7) 84 58 65 02</a>
+                    </span>
+                  </div>
                 </li>
                 <li className="person">
                   <span className="person__avatar">IS</span>
-                  <strong>Illona Stanescu</strong>
+                  <div className="person__content">
+                    <strong>Illona Stanescu</strong>
+                  </div>
                 </li>
                 <li className="person">
                   <span className="person__avatar">PL</span>
-                  <strong>Patrick Lemaire</strong>
+                  <div className="person__content">
+                    <strong>Patrick Lemaire</strong>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -150,11 +174,18 @@ export default function Team() {
               <ul className="persons">
                 <li className="person">
                   <span className="person__avatar">FA</span>
-                  <strong>Franck Accambray</strong>
+                  <div className="person__content">
+                    <strong>Franck Accambray</strong>
+                  </div>
                 </li>
                 <li className="person">
                   <span className="person__avatar">YA</span>
-                  <strong>Yohann Aimée</strong>
+                  <div className="person__content">
+                    <strong>Yohann Aimée</strong>
+                    <span className="person__phone">
+                      <a href="tel:+33665184955">06 65 18 49 55</a>
+                    </span>
+                  </div>
                 </li>
               </ul>
             </div>
