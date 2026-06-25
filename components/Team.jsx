@@ -70,7 +70,7 @@ export default function Team() {
                       />
                     </svg>
                   </span>
-                  <span className="contact-row__value">06 70 88 63 34</span>
+                  <span className="contact-row__value">+33 6 70 88 63 34</span>
                   <span className="contact-row__note">Lun – Ven · 9h – 19h</span>
                 </a>
               </li>
@@ -130,7 +130,7 @@ export default function Team() {
                   <div className="person__content">
                     <strong>Benjamin Flottes de Pouzols</strong>
                     <span className="person__phone">
-                      <a href="tel:+33670886334">06 70 88 63 34</a>
+                      <a href="tel:+33670886334">+33 6 70 88 63 34</a>
                     </span>
                   </div>
                 </li>
@@ -139,7 +139,7 @@ export default function Team() {
                   <div className="person__content">
                     <strong>Linda Taillefer</strong>
                     <span className="person__phone">
-                      <a href="tel:+33619592201">06 19 59 22 01</a>
+                      <a href="tel:+33619592201">+33 6 19 59 22 01</a>
                     </span>
                   </div>
                 </li>
@@ -148,8 +148,8 @@ export default function Team() {
                   <div className="person__content">
                     <strong>Caroline CHAYEB</strong>
                     <span className="person__phone">
-                      <a href="tel:+33607672635">+33 (6) 07 67 26 35</a>
-                      <a href="tel:+33784586502">+33 (7) 84 58 65 02</a>
+                      <a href="tel:+33607672635">+33 6 07 67 26 35</a>
+                      <a href="tel:+33784586502">+33 7 84 58 65 02</a>
                     </span>
                   </div>
                 </li>
@@ -186,7 +186,7 @@ export default function Team() {
                   <div className="person__content">
                     <strong>Yohann Aimée</strong>
                     <span className="person__phone">
-                      <a href="tel:+33665184955">06 65 18 49 55</a>
+                      <a href="tel:+33665184955">+33 6 65 18 49 55</a>
                     </span>
                   </div>
                 </li>

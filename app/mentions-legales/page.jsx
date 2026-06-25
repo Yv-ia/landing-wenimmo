@@ -33,7 +33,7 @@ export default function MentionsLegalesPage() {
         <dd>FR55883127946</dd>
         <dt>Téléphone</dt>
         <dd>
-          <a href="tel:+33670886334">06 70 88 63 34</a>
+          <a href="tel:+33670886334">+33 6 70 88 63 34</a>
         </dd>
         <dt>Adresse e-mail</dt>
         <dd>

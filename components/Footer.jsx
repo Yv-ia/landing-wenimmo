@@ -16,7 +16,7 @@ export default function Footer() {
               75017 Paris
             </address>
             <p className="footer__contact">
-              <a href="tel:+33670886334">06 70 88 63 34</a>
+              <a href="tel:+33670886334">+33 6 70 88 63 34</a>
               <br />
               <CopyEmail email="backoffice@wenimmo.com" />
             </p>
