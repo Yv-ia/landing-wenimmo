@@ -157,6 +157,9 @@ export default function Team() {
                   <span className="person__avatar">IS</span>
                   <div className="person__content">
                     <strong>Illona Stanescu</strong>
+                    <span className="person__phone">
+                      <a href="tel:+33642928419">+33 6 42 92 84 19</a>
+                    </span>
                   </div>
                 </li>
                 <li className="person">
