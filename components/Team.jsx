@@ -163,6 +163,9 @@ export default function Team() {
                   <span className="person__avatar">PL</span>
                   <div className="person__content">
                     <strong>Patrick Lemaire</strong>
+                    <span className="person__phone">
+                      <a href="tel:+33684817664">+33 6 84 81 76 64</a>
+                    </span>
                   </div>
                 </li>
               </ul>
