@@ -70,7 +70,7 @@ export default function Team() {
                       />
                     </svg>
                   </span>
-                  <span className="contact-row__value">06 70 88 63 34</span>
+                  <span className="contact-row__value">+33 6 70 88 63 34</span>
                   <span className="contact-row__note">Lun – Ven · 9h – 19h</span>
                 </a>
               </li>
@@ -127,19 +127,49 @@ export default function Team() {
               <ul className="persons">
                 <li className="person">
                   <span className="person__avatar">BF</span>
-                  <strong>Benjamin Flottes de Pouzols</strong>
+                  <div className="person__content">
+                    <strong>Benjamin Flottes de Pouzols</strong>
+                    <span className="person__phone">
+                      <a href="tel:+33670886334">+33 6 70 88 63 34</a>
+                    </span>
+                  </div>
                 </li>
                 <li className="person">
                   <span className="person__avatar">LT</span>
-                  <strong>Linda Taillefer</strong>
+                  <div className="person__content">
+                    <strong>Linda Taillefer</strong>
+                    <span className="person__phone">
+                      <a href="tel:+33619592201">+33 6 19 59 22 01</a>
+                    </span>
+                  </div>
+                </li>
+                <li className="person">
+                  <span className="person__avatar">CC</span>
+                  <div className="person__content">
+                    <strong>Caroline CHAYEB</strong>
+                    <span className="person__phone">
+                      <a href="tel:+33607672635">+33 6 07 67 26 35</a>
+                      <a href="tel:+33784586502">+33 7 84 58 65 02</a>
+                    </span>
+                  </div>
                 </li>
                 <li className="person">
                   <span className="person__avatar">IS</span>
-                  <strong>Illona Stanescu</strong>
+                  <div className="person__content">
+                    <strong>Illona Stanescu</strong>
+                    <span className="person__phone">
+                      <a href="tel:+33642928419">+33 6 42 92 84 19</a>
+                    </span>
+                  </div>
                 </li>
                 <li className="person">
                   <span className="person__avatar">PL</span>
-                  <strong>Patrick Lemaire</strong>
+                  <div className="person__content">
+                    <strong>Patrick Lemaire</strong>
+                    <span className="person__phone">
+                      <a href="tel:+33684817664">+33 6 84 81 76 64</a>
+                    </span>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -150,11 +180,21 @@ export default function Team() {
               <ul className="persons">
                 <li className="person">
                   <span className="person__avatar">FA</span>
-                  <strong>Franck Accambray</strong>
+                  <div className="person__content">
+                    <strong>Franck Accambray</strong>
+                    <span className="person__phone">
+                      <a href="tel:+33613169005">+33 6 13 16 90 05</a>
+                    </span>
+                  </div>
                 </li>
                 <li className="person">
                   <span className="person__avatar">YA</span>
-                  <strong>Yohann Aimée</strong>
+                  <div className="person__content">
+                    <strong>Yohann Aimée</strong>
+                    <span className="person__phone">
+                      <a href="tel:+33665184955">+33 6 65 18 49 55</a>
+                    </span>
+                  </div>
                 </li>
               </ul>
             </div>

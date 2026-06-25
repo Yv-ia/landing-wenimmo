@@ -158,7 +158,7 @@ export default function CgpForm() {
             name="phone"
             inputMode="tel"
             autoComplete="tel"
-            placeholder="06 12 34 56 78"
+            placeholder="+33 6 12 34 56 78"
             required
             className={fieldClass("phone")}
             onInput={handlePhoneInput}
