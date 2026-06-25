@@ -24,7 +24,7 @@ export default function Team() {
         <div className="section__head reveal">
           <p className="section__kicker">Nous contacter</p>
           <h2 className="section__title">
-            Échangeons avec <em className="accent">la bonne personne</em>.
+            Échangeons avec <em className="accent">vos interlocuteurs</em>&nbsp;!
           </h2>
         </div>
 
@@ -44,7 +44,7 @@ export default function Team() {
             aria-selected={audience === "particulier"}
             onClick={() => setAudience("particulier")}
           >
-            Je suis un particulier
+            Vos interlocuteurs
           </button>
         </div>
         {audience === "particulier" && (
@@ -168,7 +168,7 @@ export default function Team() {
           {/* Bloc sombre : pitch « rejoindre le réseau » */}
           <div className="team__panel team__panel--dark">
             <h3>
-              Envie de rejoindre <em className="accent">le réseau&nbsp;?</em>
+              Envie de rejoindre <em className="accent">la communauté&nbsp;?</em>
             </h3>
             <p className="team__panel-lead">
               Un onboarding sur mesure&nbsp;: inscription, formation, accompagnement au lancement —
