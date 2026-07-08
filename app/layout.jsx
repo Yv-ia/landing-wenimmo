@@ -1,4 +1,5 @@
 import "./globals.css";
+import PlatformDemo from "../components/PlatformDemo";
 
 export const metadata = {
   title: "Wenimmo — Libérez du temps pour vos clients",
@@ -21,7 +22,10 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <PlatformDemo />
+      </body>
     </html>
   );
 }
