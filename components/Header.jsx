@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ConnexionButton from "./ConnexionButton";
 
 // Liens racine-relatifs (/#…) pour fonctionner aussi depuis les sous-pages (mentions légales…)
 const NAV_LINKS = [
@@ -54,9 +55,7 @@ export default function Header() {
             </nav>
             <div className="header__cta">
               <a href="/#rejoindre" className="btn btn--ghost btn--sm">Nous contacter</a>
-              <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--sm">
-                Connexion →
-              </a>
+              <ConnexionButton className="btn btn--primary btn--sm">Connexion →</ConnexionButton>
             </div>
             <button
               className="header__burger"
@@ -83,9 +82,7 @@ export default function Header() {
         </nav>
         <div className="mobile-menu__cta">
           <a href="/#rejoindre" className="btn btn--ghost" onClick={closeMenu}>Nous contacter</a>
-          <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary" onClick={closeMenu}>
-            Connexion →
-          </a>
+          <ConnexionButton className="btn btn--primary" onClick={closeMenu}>Connexion →</ConnexionButton>
         </div>
       </div>
     </>

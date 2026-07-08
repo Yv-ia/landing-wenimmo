@@ -1,3 +1,6 @@
+import ConnexionButton from "./ConnexionButton";
+import MockupTrigger from "./MockupTrigger";
+
 export default function Hero() {
   return (
     <section className="hero">
@@ -16,9 +19,7 @@ export default function Hero() {
           signés et transmis aux sociétés de gestion.
         </p>
         <div className="hero__actions reveal">
-          <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--lg">
-            Connexion <span className="btn__arrow">→</span>
-          </a>
+          <ConnexionButton className="btn btn--primary btn--lg" />
           <a href="#rejoindre" className="btn btn--outline-light btn--lg">Demander une démo</a>
         </div>
         <div className="hero__stats reveal">
@@ -30,11 +31,12 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Aperçu de la plateforme (image provisoire — à remplacer par la vraie capture) */}
+      {/* Aperçu de la plateforme — cliquable : ouvre le mock interactif */}
       <div className="container hero__mockup reveal">
-        <div className="hero__mockup-frame">
+        <MockupTrigger>
           <img src="/assets/mockup-plateforme.svg" alt="Aperçu de la plateforme Wenimmo" />
-        </div>
+          <span className="hero__mockup-hint">Cliquer pour explorer la plateforme →</span>
+        </MockupTrigger>
       </div>
     </section>
   );
