@@ -304,7 +304,7 @@ export default function PlatformDemo() {
                 >
                   <NavIcon k={n.key} />
                   <span>{n.label}</span>
-                  {n.isNew && <span className="pmk-navnew">Nouveau</span>}
+                  {n.isNew && <span className="pmk-navdot" title="Nouveau" aria-label="Nouveau" />}
                 </button>
               ))}
             </nav>
