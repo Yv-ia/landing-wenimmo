@@ -104,7 +104,7 @@ const FIN_STEPS = [
   {
     num: "1",
     title: "Pré-scoring de la capacité",
-    text: "Évaluation de la capacité d'emprunt selon les critères bancaires. Réponse indicative sous 24 h ouvrées.",
+    text: "Évaluation de la capacité d'emprunt du client.",
   },
   {
     num: "2",
@@ -327,7 +327,7 @@ export default function PlatformDemo() {
                     <ConsortiumMark small />
                     <span className="pmk-promo-new">Nouveau</span>
                     <p>
-                      <strong>Financement des SCPI à crédit</strong> avec Consortium Financement — pré-scoring de la capacité d'emprunt sous 24 h.
+                      <strong>Financement des SCPI à crédit</strong> avec Consortium Financement — pré-scoring de la capacité d'emprunt.
                     </p>
                     <button className="pmk-promo-cta" onClick={() => { setNav("financement"); setSelected(null); }}>
                       Découvrir
