@@ -109,7 +109,7 @@ const FIN_STEPS = [
   {
     num: "2",
     title: "Collecte des pièces",
-    text: "Dépôt des justificatifs en ligne. Consortium Financement contrôle la complétude du dossier.",
+    text: "Dépôt des justificatifs en ligne.",
   },
   {
     num: "3",
@@ -488,7 +488,6 @@ export default function PlatformDemo() {
                   <button className="pmk-fin-cta" onClick={() => startFinFlow()}>
                     Démarrer un pré-scoring
                   </button>
-                  <p className="pmk-fin-note">Sans engagement — réponse indicative sous 24 h ouvrées.</p>
                 </div>
               </div>
             ) : nav === "financement" ? (
@@ -561,7 +560,7 @@ export default function PlatformDemo() {
                   <div className="pmk-flow-card">
                     <h3>La situation du client</h3>
                     <p className="pmk-flow-intro">
-                      Éléments requis pour l'évaluation de la capacité d'emprunt selon les critères bancaires.
+                      Éléments requis pour l'évaluation de la capacité d'emprunt.
                     </p>
                     <div className="pmk-flow-form">
                       <label>
@@ -625,7 +624,7 @@ export default function PlatformDemo() {
                       <div className="pmk-gauge-legend"><span>Endettement</span><span>Seuil 35 %</span></div>
                     </div>
 
-                    <p className="pmk-flow-note">Résultat indicatif — confirmation par Consortium Financement sous 24 h ouvrées.</p>
+                    <p className="pmk-flow-note">Résultat indicatif — confirmation par Consortium Financement.</p>
                     <div className="pmk-flow-actions">
                       <button className="pmk-flow-prev" onClick={() => setFinStep(2)}>← Modifier les informations</button>
                       <button className="pmk-flow-next" onClick={() => setFinStep(4)} disabled={finResult.verdict === "ko"}>
