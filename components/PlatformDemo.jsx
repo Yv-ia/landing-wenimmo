@@ -327,7 +327,7 @@ export default function PlatformDemo() {
                     <ConsortiumMark small />
                     <span className="pmk-promo-new">Nouveau</span>
                     <p>
-                      <strong>Financement des SCPI à crédit</strong> avec Consortium Financement — pré-scoring de la capacité d'emprunt.
+                      <strong>Financement des SCPI à crédit</strong> avec Consortium Financement.
                     </p>
                     <button className="pmk-promo-cta" onClick={() => { setNav("financement"); setSelected(null); }}>
                       Découvrir
