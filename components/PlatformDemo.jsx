@@ -118,6 +118,29 @@ const FIN_STEPS = [
   },
 ];
 
+/* Parcours de financement (wizard plein écran) */
+const FIN_FLOW_STEPS = ["Le projet", "Situation du client", "Pré-scoring", "Pièces du dossier", "Transmission"];
+
+const FIN_DOCS = [
+  { key: "id", label: "Pièce d'identité en cours de validité" },
+  { key: "imposition", label: "Dernier avis d'imposition" },
+  { key: "salaires", label: "3 derniers bulletins de salaire" },
+  { key: "releves", label: "3 derniers relevés de comptes" },
+  { key: "credits", label: "Tableaux d'amortissement des crédits en cours" },
+  { key: "patrimoine", label: "Justificatif du patrimoine existant" },
+];
+
+const FIN_FORM_DEFAULT = {
+  produit: "Épargne Pierre",
+  montant: "100 000",
+  apport: "20 000",
+  duree: "20",
+  stype: "Pleine propriété",
+  revenus: "6 500",
+  charges: "1 200",
+  situation: "Salarié en CDI",
+};
+
 function ConsortiumMark({ small }) {
   return (
     <span className={`pmk-cf-mark${small ? " pmk-cf-mark--sm" : ""}`} aria-hidden="true">
@@ -170,8 +193,18 @@ export default function PlatformDemo() {
   const [selected, setSelected] = useState(null);
   const [selectedSub, setSelectedSub] = useState(null);
   const [promoBanner, setPromoBanner] = useState(true);
-  const [scoring, setScoring] = useState(false);
-  const [scoringSent, setScoringSent] = useState(false);
+  const [finStep, setFinStep] = useState(0); // 0 = page Financement, 1..5 = parcours pré-scoring
+  const [finForm, setFinForm] = useState(FIN_FORM_DEFAULT);
+  const [finDocs, setFinDocs] = useState({});
+
+  const startFinFlow = (produit) => {
+    setFinForm(produit ? { ...FIN_FORM_DEFAULT, produit } : FIN_FORM_DEFAULT);
+    setFinDocs({});
+    setNav("financement");
+    setSelected(null);
+    setSelectedSub(null);
+    setFinStep(1);
+  };
 
   useEffect(() => {
     const onOpen = () => {
@@ -182,8 +215,7 @@ export default function PlatformDemo() {
       setSelected(null);
       setSelectedSub(null);
       setPromoBanner(true);
-      setScoring(false);
-      setScoringSent(false);
+      setFinStep(0);
       setOpen(true);
     };
     window.addEventListener("open-platform-demo", onOpen);
@@ -194,9 +226,9 @@ export default function PlatformDemo() {
     if (!open) return;
     const onKey = (e) => {
       if (e.key !== "Escape") return;
-      if (scoring) { setScoring(false); setScoringSent(false); }
-      else if (selectedSub) setSelectedSub(null);
+      if (selectedSub) setSelectedSub(null);
       else if (selected) setSelected(null);
+      else if (finStep > 0) setFinStep(0);
       else setOpen(false);
     };
     document.addEventListener("keydown", onKey);
@@ -205,7 +237,7 @@ export default function PlatformDemo() {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [open, selected, selectedSub, scoring]);
+  }, [open, selected, selectedSub, finStep]);
 
   const rows = useMemo(() => {
     const list = PRODUCTS[tab] ?? [];
@@ -223,6 +255,28 @@ export default function PlatformDemo() {
 
   const subTabInfo = SUB_TABS.find((t) => t.key === subTab);
 
+  /* Simulation du pré-scoring : mêmes ratios que la banque (taux fixe 3,99 %, endettement max 35 %) */
+  const finResult = useMemo(() => {
+    const num = (v) => parseFloat(String(v).replace(/[\s €]/g, "").replace(",", ".")) || 0;
+    const montant = num(finForm.montant);
+    const apport = num(finForm.apport);
+    const dureeAns = Math.min(Math.max(num(finForm.duree) || 20, 5), 25);
+    const revenus = num(finForm.revenus);
+    const charges = num(finForm.charges);
+    const emprunt = Math.max(montant - apport, 0);
+    const t = 0.0399 / 12;
+    const n = dureeAns * 12;
+    const mensualite = emprunt > 0 ? (emprunt * t) / (1 - Math.pow(1 + t, -n)) : 0;
+    const endettement = revenus > 0 ? ((mensualite + charges) / revenus) * 100 : 100;
+    const mensualiteMax = Math.max(revenus * 0.35 - charges, 0);
+    const capaciteMax = (mensualiteMax * (1 - Math.pow(1 + t, -n))) / t;
+    const verdict = endettement <= 35 ? "ok" : endettement <= 42 ? "warn" : "ko";
+    return { emprunt, dureeAns, mensualite, endettement, capaciteMax, verdict };
+  }, [finForm]);
+
+  const euro = (v) => `${Math.round(v).toLocaleString("fr-FR")} €`;
+  const docsDone = FIN_DOCS.filter((d) => finDocs[d.key]).length;
+
   if (!open) return null;
 
   return (
@@ -231,7 +285,7 @@ export default function PlatformDemo() {
         {/* Chrome navigateur */}
         <div className="pdemo-chrome">
           <span className="pdemo-lights"><i /><i /><i /></span>
-          <span className="pdemo-url">app.wenimmo.com/{nav === "produits" ? "produits" : nav}</span>
+          <span className="pdemo-url">app.wenimmo.com/{nav === "financement" && finStep > 0 ? "financement/pre-scoring" : nav}</span>
           <button className="pdemo-close" aria-label="Fermer la démonstration" onClick={() => setOpen(false)}>×</button>
         </div>
 
@@ -246,7 +300,7 @@ export default function PlatformDemo() {
                 <button
                   key={n.key}
                   className={`pmk-navitem${nav === n.key ? " is-active" : ""}`}
-                  onClick={() => { setNav(n.key); setQuery(""); setSelected(null); setSelectedSub(null); setScoring(false); setScoringSent(false); }}
+                  onClick={() => { setNav(n.key); setQuery(""); setSelected(null); setSelectedSub(null); setFinStep(0); }}
                 >
                   <NavIcon k={n.key} />
                   <span>{n.label}</span>
@@ -403,7 +457,7 @@ export default function PlatformDemo() {
                   </table>
                 </div>
               </>
-            ) : nav === "financement" ? (
+            ) : nav === "financement" && finStep === 0 ? (
               <div className="pmk-fin">
                 <div className="pmk-fin-hero">
                   <div className="pmk-fin-cobrand">
@@ -432,11 +486,218 @@ export default function PlatformDemo() {
                 </div>
 
                 <div className="pmk-fin-actions">
-                  <button className="pmk-fin-cta" onClick={() => { setScoring(true); setScoringSent(false); }}>
+                  <button className="pmk-fin-cta" onClick={() => startFinFlow()}>
                     Démarrer un pré-scoring
                   </button>
                   <p className="pmk-fin-note">Sans engagement — réponse indicative sous 24 h ouvrées.</p>
                 </div>
+              </div>
+            ) : nav === "financement" ? (
+              <div className="pmk-flow">
+                <button className="pmk-flow-back" onClick={() => setFinStep(0)}>← Financement</button>
+                <p className="pmk-flow-brand"><ConsortiumMark small /> Wenimmo × Consortium Financement</p>
+                <h2 className="pmk-title pmk-title--serif">Pré-scoring de la capacité de financement</h2>
+
+                <ol className="pmk-stepper">
+                  {FIN_FLOW_STEPS.map((label, i) => {
+                    const num = i + 1;
+                    const state = num < finStep ? "done" : num === finStep ? "current" : "todo";
+                    return (
+                      <li key={label} className={`pmk-stepper-item is-${state}`}>
+                        <button
+                          disabled={num >= finStep || finStep === 5}
+                          onClick={() => setFinStep(num)}
+                        >
+                          <span className="pmk-stepper-dot">{state === "done" ? "✓" : num}</span>
+                          <span className="pmk-stepper-label">{label}</span>
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ol>
+
+                {finStep === 1 && (
+                  <div className="pmk-flow-card">
+                    <h3>Le projet d'investissement</h3>
+                    <p className="pmk-flow-intro">Décrivez la souscription que votre client souhaite financer.</p>
+                    <div className="pmk-flow-form">
+                      <label>
+                        <span>Produit concerné</span>
+                        <input value={finForm.produit} onChange={(e) => setFinForm({ ...finForm, produit: e.target.value })} />
+                      </label>
+                      <label>
+                        <span>Type de souscription</span>
+                        <select value={finForm.stype} onChange={(e) => setFinForm({ ...finForm, stype: e.target.value })}>
+                          <option>Pleine propriété</option>
+                          <option>Nue-propriété</option>
+                          <option>Démembrement</option>
+                        </select>
+                      </label>
+                      <label>
+                        <span>Montant de SCPI envisagé</span>
+                        <input value={finForm.montant} onChange={(e) => setFinForm({ ...finForm, montant: e.target.value })} />
+                      </label>
+                      <label>
+                        <span>Apport disponible</span>
+                        <input value={finForm.apport} onChange={(e) => setFinForm({ ...finForm, apport: e.target.value })} />
+                      </label>
+                      <label>
+                        <span>Durée souhaitée (années)</span>
+                        <select value={finForm.duree} onChange={(e) => setFinForm({ ...finForm, duree: e.target.value })}>
+                          <option>10</option>
+                          <option>15</option>
+                          <option>20</option>
+                          <option>25</option>
+                        </select>
+                      </label>
+                    </div>
+                    <div className="pmk-flow-actions">
+                      <span />
+                      <button className="pmk-flow-next" onClick={() => setFinStep(2)}>Continuer →</button>
+                    </div>
+                  </div>
+                )}
+
+                {finStep === 2 && (
+                  <div className="pmk-flow-card">
+                    <h3>La situation du client</h3>
+                    <p className="pmk-flow-intro">
+                      Ces informations permettent à Consortium Financement d'évaluer la capacité comme la banque le fera.
+                    </p>
+                    <div className="pmk-flow-form">
+                      <label>
+                        <span>Revenus nets mensuels du foyer</span>
+                        <input value={finForm.revenus} onChange={(e) => setFinForm({ ...finForm, revenus: e.target.value })} />
+                      </label>
+                      <label>
+                        <span>Charges & crédits en cours (mensuels)</span>
+                        <input value={finForm.charges} onChange={(e) => setFinForm({ ...finForm, charges: e.target.value })} />
+                      </label>
+                      <label>
+                        <span>Situation professionnelle</span>
+                        <select value={finForm.situation} onChange={(e) => setFinForm({ ...finForm, situation: e.target.value })}>
+                          <option>Salarié en CDI</option>
+                          <option>Salarié en CDD</option>
+                          <option>Indépendant / TNS</option>
+                          <option>Chef d'entreprise</option>
+                          <option>Retraité</option>
+                        </select>
+                      </label>
+                    </div>
+                    <div className="pmk-flow-actions">
+                      <button className="pmk-flow-prev" onClick={() => setFinStep(1)}>← Retour</button>
+                      <button className="pmk-flow-next" onClick={() => setFinStep(3)}>Lancer le pré-scoring →</button>
+                    </div>
+                  </div>
+                )}
+
+                {finStep === 3 && (
+                  <div className="pmk-flow-card">
+                    <div className={`pmk-verdict pmk-verdict--${finResult.verdict}`}>
+                      <span className="pmk-verdict-badge">
+                        {finResult.verdict === "ok" ? "✓ Capacité de financement validée"
+                          : finResult.verdict === "warn" ? "Capacité à affiner"
+                          : "Capacité insuffisante en l'état"}
+                      </span>
+                      <p>
+                        {finResult.verdict === "ok"
+                          ? `Le projet de ${finForm.produit || "SCPI"} est finançable : le taux d'endettement reste sous le seuil bancaire de 35 %.`
+                          : finResult.verdict === "warn"
+                          ? "Le taux d'endettement dépasse légèrement le seuil de 35 % — un conseiller Consortium Financement étudiera les leviers (durée, apport, revenus locatifs)."
+                          : "En l'état, le taux d'endettement est trop élevé. Réduisez le montant emprunté ou augmentez l'apport, puis relancez le pré-scoring."}
+                      </p>
+                    </div>
+
+                    <dl className="pmk-metrics">
+                      <div className="pmk-metric"><dt>Montant à financer</dt><dd>{euro(finResult.emprunt)}</dd></div>
+                      <div className="pmk-metric"><dt>Mensualité estimée</dt><dd>{euro(finResult.mensualite)}<small>taux 3,99 % sur {finResult.dureeAns} ans, hors assurance</small></dd></div>
+                      <div className="pmk-metric"><dt>Taux d'endettement</dt><dd>{finResult.endettement.toFixed(1).replace(".", ",")} %<small>seuil bancaire : 35 %</small></dd></div>
+                      <div className="pmk-metric"><dt>Capacité d'emprunt max.</dt><dd>{euro(finResult.capaciteMax)}</dd></div>
+                    </dl>
+
+                    <div className="pmk-gauge" role="img" aria-label={`Taux d'endettement ${finResult.endettement.toFixed(1)} % pour un seuil de 35 %`}>
+                      <div className="pmk-gauge-track">
+                        <div
+                          className={`pmk-gauge-fill pmk-gauge-fill--${finResult.verdict}`}
+                          style={{ width: `${Math.min(finResult.endettement / 50 * 100, 100)}%` }}
+                        />
+                        <span className="pmk-gauge-limit" style={{ left: "70%" }} />
+                      </div>
+                      <div className="pmk-gauge-legend"><span>Endettement</span><span>Seuil 35 %</span></div>
+                    </div>
+
+                    <p className="pmk-flow-note">Résultat indicatif calculé en direct — confirmé par Consortium Financement sous 24 h ouvrées.</p>
+                    <div className="pmk-flow-actions">
+                      <button className="pmk-flow-prev" onClick={() => setFinStep(2)}>← Modifier les informations</button>
+                      <button className="pmk-flow-next" onClick={() => setFinStep(4)} disabled={finResult.verdict === "ko"}>
+                        Poursuivre : collecte des pièces →
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {finStep === 4 && (
+                  <div className="pmk-flow-card">
+                    <h3>Pièces du dossier</h3>
+                    <p className="pmk-flow-intro">
+                      Consortium Financement vérifie la complétude de chaque pièce avant le montage du dossier.
+                    </p>
+                    <ul className="pmk-docs">
+                      {FIN_DOCS.map((d) => (
+                        <li key={d.key} className={finDocs[d.key] ? "is-done" : ""}>
+                          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M7 3h7l4 4v14H7z" /><path d="M14 3v4h4" /></svg>
+                          <span>{d.label}</span>
+                          <button onClick={() => setFinDocs((prev) => ({ ...prev, [d.key]: !prev[d.key] }))}>
+                            {finDocs[d.key] ? "✓ Reçue" : "Déposer"}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="pmk-docs-progress">
+                      {docsDone}/{FIN_DOCS.length} pièces reçues
+                      {docsDone < FIN_DOCS.length && (
+                        <button className="pmk-docs-all" onClick={() => setFinDocs(Object.fromEntries(FIN_DOCS.map((d) => [d.key, true])))}>
+                          Tout marquer comme reçu (démo)
+                        </button>
+                      )}
+                    </p>
+                    <div className="pmk-flow-actions">
+                      <button className="pmk-flow-prev" onClick={() => setFinStep(3)}>← Retour</button>
+                      <button className="pmk-flow-next" onClick={() => setFinStep(5)} disabled={docsDone < FIN_DOCS.length}>
+                        Transmettre le dossier →
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {finStep === 5 && (
+                  <div className="pmk-flow-card pmk-flow-card--success">
+                    <span className="pmk-scoring-check">✓</span>
+                    <h3>Dossier transmis à Consortium Financement</h3>
+                    <p className="pmk-flow-ref">Dossier n° CF-2026-0418 · {finForm.produit || "SCPI"} · {euro(finResult.emprunt)} sur {finResult.dureeAns} ans</p>
+                    <ol className="pmk-timeline">
+                      <li>
+                        <strong>Sous 48 h</strong>
+                        <span>Consortium Financement vérifie la complétude du dossier et confirme le pré-scoring.</span>
+                      </li>
+                      <li>
+                        <strong>Semaines 1–2</strong>
+                        <span>Le dossier est monté puis présenté aux banques partenaires.</span>
+                      </li>
+                      <li>
+                        <strong>À l'obtention</strong>
+                        <span>Édition de l'offre de prêt, signature, puis déblocage des fonds vers la souscription Wenimmo.</span>
+                      </li>
+                    </ol>
+                    <p className="pmk-flow-note">Vous êtes notifié à chaque étape directement dans votre espace Wenimmo.</p>
+                    <div className="pmk-flow-actions">
+                      <button className="pmk-flow-prev" onClick={() => setFinStep(0)}>Retour au financement</button>
+                      <button className="pmk-flow-next" onClick={() => { setFinStep(0); setNav("produits"); }}>
+                        Revenir aux produits →
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="pmk-placeholder">
@@ -472,7 +733,7 @@ export default function PlatformDemo() {
                   <p className="pmk-fincard-text">
                     Votre client n'a pas toute la liquidité ? <strong>Cette SCPI est finançable à crédit.</strong>
                   </p>
-                  <button className="pmk-fincard-cta" onClick={() => { setSelected(null); setNav("financement"); }}>
+                  <button className="pmk-fincard-cta" onClick={() => startFinFlow(selected.name)}>
                     Étudier la capacité de financement <span>→</span>
                   </button>
                 </div>
@@ -506,58 +767,6 @@ export default function PlatformDemo() {
             </div>
           )}
 
-          {/* Pré-scoring Consortium Financement (drawer) */}
-          {scoring && (
-            <div className="pmk-drawer" onClick={(e) => e.stopPropagation()}>
-              <div className="pmk-drawer-head">
-                <div>
-                  <p className="pmk-drawer-cat pmk-drawer-cat--fin">Consortium Financement</p>
-                  <h3>Pré-scoring de capacité</h3>
-                </div>
-                <button className="pmk-drawer-close" aria-label="Fermer le pré-scoring" onClick={() => { setScoring(false); setScoringSent(false); }}>×</button>
-              </div>
-              {scoringSent ? (
-                <div className="pmk-scoring-done">
-                  <span className="pmk-scoring-check">✓</span>
-                  <h4>Demande transmise</h4>
-                  <p>
-                    Consortium Financement analyse la capacité de financement de votre client et revient vers vous
-                    sous 24 h ouvrées avec une réponse indicative, puis lance la collecte des pièces.
-                  </p>
-                  <button className="pmk-subscribe" onClick={() => { setScoring(false); setScoringSent(false); }}>Fermer</button>
-                </div>
-              ) : (
-                <>
-                  <p className="pmk-scoring-intro">
-                    Quelques informations suffisent pour évaluer la capacité de financement de votre client — comme
-                    la banque le fera.
-                  </p>
-                  <div className="pmk-scoring-form">
-                    <label>
-                      <span>Montant de SCPI envisagé</span>
-                      <input defaultValue="100 000 €" />
-                    </label>
-                    <label>
-                      <span>Apport disponible</span>
-                      <input defaultValue="20 000 €" />
-                    </label>
-                    <label>
-                      <span>Revenus nets mensuels du foyer</span>
-                      <input defaultValue="6 500 €" />
-                    </label>
-                    <label>
-                      <span>Durée souhaitée</span>
-                      <input defaultValue="20 ans" />
-                    </label>
-                  </div>
-                  <button className="pmk-subscribe pmk-subscribe--fin" onClick={() => setScoringSent(true)}>
-                    Envoyer à Consortium Financement
-                  </button>
-                  <p className="pmk-drawer-note">Démonstration — aucune donnée n'est transmise.</p>
-                </>
-              )}
-            </div>
-          )}
         </div>
       </div>
     </div>
