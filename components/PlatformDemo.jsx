@@ -104,17 +104,17 @@ const FIN_STEPS = [
   {
     num: "1",
     title: "Pré-scoring de la capacité",
-    text: "Consortium Financement évalue la capacité de financement de votre client selon les mêmes critères que la banque — réponse indicative sous 24 h ouvrées.",
+    text: "Évaluation de la capacité d'emprunt selon les critères bancaires. Réponse indicative sous 24 h ouvrées.",
   },
   {
     num: "2",
     title: "Collecte des pièces",
-    text: "Votre client dépose ses justificatifs en ligne. Consortium Financement vérifie la complétude du dossier et vous tient informé.",
+    text: "Dépôt des justificatifs en ligne. Consortium Financement contrôle la complétude du dossier.",
   },
   {
     num: "3",
     title: "Montage & présentation du dossier",
-    text: "Le dossier de financement est monté par Consortium Financement puis présenté aux banques partenaires jusqu'à l'obtention de l'offre de prêt.",
+    text: "Montage du dossier et présentation aux banques partenaires, jusqu'à l'émission de l'offre de prêt.",
   },
 ];
 
@@ -327,7 +327,7 @@ export default function PlatformDemo() {
                     <ConsortiumMark small />
                     <span className="pmk-promo-new">Nouveau</span>
                     <p>
-                      <strong>Financez les SCPI de vos clients</strong> avec Consortium Financement — pré-scoring de la capacité de financement en 24 h.
+                      <strong>Financement des SCPI à crédit</strong> avec Consortium Financement — pré-scoring de la capacité d'emprunt sous 24 h.
                     </p>
                     <button className="pmk-promo-cta" onClick={() => { setNav("financement"); setSelected(null); }}>
                       Découvrir
@@ -468,10 +468,9 @@ export default function PlatformDemo() {
                   <span className="pmk-fin-badge">Nouveau partenariat</span>
                   <h2 className="pmk-title pmk-title--serif">Financez les SCPI de vos clients</h2>
                   <p className="pmk-fin-sub">
-                    Votre client veut investir mais n'a pas toute la liquidité ? Wenimmo s'associe à{" "}
-                    <strong>Consortium Financement</strong> pour financer à crédit les SCPI souscrites sur la
-                    plateforme : capacité de financement évaluée en amont, pièces collectées, dossier monté et
-                    présenté à la banque — sans que vous sortiez de votre parcours.
+                    En partenariat avec <strong>Consortium Financement</strong>, Wenimmo intègre le financement
+                    à crédit des SCPI au parcours de souscription : évaluation de la capacité d'emprunt,
+                    collecte des pièces et présentation du dossier aux banques partenaires.
                   </p>
                 </div>
 
@@ -519,7 +518,7 @@ export default function PlatformDemo() {
                 {finStep === 1 && (
                   <div className="pmk-flow-card">
                     <h3>Le projet d'investissement</h3>
-                    <p className="pmk-flow-intro">Décrivez la souscription que votre client souhaite financer.</p>
+                    <p className="pmk-flow-intro">Caractéristiques de la souscription à financer.</p>
                     <div className="pmk-flow-form">
                       <label>
                         <span>Produit concerné</span>
@@ -562,7 +561,7 @@ export default function PlatformDemo() {
                   <div className="pmk-flow-card">
                     <h3>La situation du client</h3>
                     <p className="pmk-flow-intro">
-                      Ces informations permettent à Consortium Financement d'évaluer la capacité comme la banque le fera.
+                      Éléments requis pour l'évaluation de la capacité d'emprunt selon les critères bancaires.
                     </p>
                     <div className="pmk-flow-form">
                       <label>
@@ -601,10 +600,10 @@ export default function PlatformDemo() {
                       </span>
                       <p>
                         {finResult.verdict === "ok"
-                          ? `Le projet de ${finForm.produit || "SCPI"} est finançable : le taux d'endettement reste sous le seuil bancaire de 35 %.`
+                          ? `Projet ${finForm.produit || "SCPI"} finançable en l'état : taux d'endettement inférieur au seuil bancaire de 35 %.`
                           : finResult.verdict === "warn"
-                          ? "Le taux d'endettement dépasse légèrement le seuil de 35 % — un conseiller Consortium Financement étudiera les leviers (durée, apport, revenus locatifs)."
-                          : "En l'état, le taux d'endettement est trop élevé. Réduisez le montant emprunté ou augmentez l'apport, puis relancez le pré-scoring."}
+                          ? "Taux d'endettement légèrement supérieur au seuil de 35 %. Consortium Financement étudiera les leviers d'optimisation (durée, apport, revenus locatifs)."
+                          : "Taux d'endettement supérieur au seuil bancaire de 35 %. Ajustez le montant ou l'apport, puis relancez l'évaluation."}
                       </p>
                     </div>
 
@@ -626,7 +625,7 @@ export default function PlatformDemo() {
                       <div className="pmk-gauge-legend"><span>Endettement</span><span>Seuil 35 %</span></div>
                     </div>
 
-                    <p className="pmk-flow-note">Résultat indicatif calculé en direct — confirmé par Consortium Financement sous 24 h ouvrées.</p>
+                    <p className="pmk-flow-note">Résultat indicatif — confirmation par Consortium Financement sous 24 h ouvrées.</p>
                     <div className="pmk-flow-actions">
                       <button className="pmk-flow-prev" onClick={() => setFinStep(2)}>← Modifier les informations</button>
                       <button className="pmk-flow-next" onClick={() => setFinStep(4)} disabled={finResult.verdict === "ko"}>
@@ -640,7 +639,7 @@ export default function PlatformDemo() {
                   <div className="pmk-flow-card">
                     <h3>Pièces du dossier</h3>
                     <p className="pmk-flow-intro">
-                      Consortium Financement vérifie la complétude de chaque pièce avant le montage du dossier.
+                      Chaque pièce est contrôlée par Consortium Financement avant le montage du dossier.
                     </p>
                     <ul className="pmk-docs">
                       {FIN_DOCS.map((d) => (
@@ -678,18 +677,18 @@ export default function PlatformDemo() {
                     <ol className="pmk-timeline">
                       <li>
                         <strong>Sous 48 h</strong>
-                        <span>Consortium Financement vérifie la complétude du dossier et confirme le pré-scoring.</span>
+                        <span>Contrôle de complétude du dossier et confirmation du pré-scoring.</span>
                       </li>
                       <li>
                         <strong>Semaines 1–2</strong>
-                        <span>Le dossier est monté puis présenté aux banques partenaires.</span>
+                        <span>Montage et présentation du dossier aux banques partenaires.</span>
                       </li>
                       <li>
                         <strong>À l'obtention</strong>
-                        <span>Édition de l'offre de prêt, signature, puis déblocage des fonds vers la souscription Wenimmo.</span>
+                        <span>Émission de l'offre de prêt, signature et déblocage des fonds vers la souscription.</span>
                       </li>
                     </ol>
-                    <p className="pmk-flow-note">Vous êtes notifié à chaque étape directement dans votre espace Wenimmo.</p>
+                    <p className="pmk-flow-note">Suivi et notifications à chaque étape depuis votre espace Wenimmo.</p>
                     <div className="pmk-flow-actions">
                       <button className="pmk-flow-prev" onClick={() => setFinStep(0)}>Retour au financement</button>
                       <button className="pmk-flow-next" onClick={() => { setFinStep(0); setNav("produits"); }}>
@@ -731,7 +730,7 @@ export default function PlatformDemo() {
                 <div className="pmk-fincard">
                   <p className="pmk-fincard-brand"><ConsortiumMark small /> Wenimmo × Consortium Financement</p>
                   <p className="pmk-fincard-text">
-                    Votre client n'a pas toute la liquidité ? <strong>Cette SCPI est finançable à crédit.</strong>
+                    <strong>SCPI éligible au financement à crédit</strong> via Consortium Financement.
                   </p>
                   <button className="pmk-fincard-cta" onClick={() => startFinFlow(selected.name)}>
                     Étudier la capacité de financement <span>→</span>
