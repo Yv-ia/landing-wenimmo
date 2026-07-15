@@ -178,12 +178,21 @@ export default function Offers() {
                   rel="noopener noreferrer"
                   className="partner-note"
                 >
-                  <span className="partner-note__tag">Partenaire · Marché secondaire</span>
+                  <span className="partner-note__head">
+                    <img
+                      src="/assets/partners/2nd-market.svg"
+                      alt="2nd Market"
+                      className="partner-note__logo"
+                    />
+                    <span className="partner-note__tag">Partenaire · Marché secondaire</span>
+                  </span>
                   <span className="partner-note__body">
-                    <strong>2nd&nbsp;Market</strong> — la mise en relation vendeurs / acheteurs de parts
-                    de SCPI sur le marché secondaire, y compris en démembrement. Décotes observées de
-                    -10&nbsp;% à -35&nbsp;% selon les SCPI, transactions sécurisées par notaire. 2nd&nbsp;Market
-                    ne dispense aucun conseil&nbsp;: vous restez l'unique conseil de vos clients.
+                    2nd&nbsp;Market est une plateforme de mise en relation entre vendeurs et acheteurs de
+                    parts de SCPI sur le marché secondaire — comme un Bon&nbsp;Coin des SCPI. Les décotes
+                    observées vont de -10&nbsp;% à -35&nbsp;% selon les SCPI. Une fois l'offre acceptée, la
+                    transaction est prise en charge de bout en bout et sécurisée par un notaire.
+                    2nd&nbsp;Market ne perçoit aucune rétrocommission et ne dispense aucun conseil en
+                    investissement.
                   </span>
                   <span className="partner-note__link">
                     Découvrir 2nd&nbsp;Market <span className="btn__arrow">→</span>
