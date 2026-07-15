@@ -939,7 +939,7 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   transition: width 0.25s ease;
 }
 .text-button:hover::after,
-a:hover > .text-button::after { width: 100%; }
+a:hover .text-button::after { width: 100%; }
 .partner-note .text-button { margin-top: 10px; }
 
 @media (max-width: 900px) {
