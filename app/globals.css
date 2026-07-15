@@ -869,9 +869,7 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   border-radius: 12px;
   background: var(--primary-soft);
   text-decoration: none;
-  transition: transform 0.2s ease;
 }
-.partner-note:hover { transform: translateY(-2px); }
 .partner-note__head {
   display: flex;
   align-items: center;
@@ -931,7 +929,6 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   font-weight: 600;
   color: var(--primary);
 }
-.partner-note:hover .partner-note__link .btn__arrow { transform: translateX(3px); }
 
 @media (max-width: 900px) {
   .offer-panel { grid-template-columns: 1fr; gap: 28px; }
