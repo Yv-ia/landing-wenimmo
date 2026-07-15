@@ -879,7 +879,13 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
 }
 
 /* Onglet Financement SCPI (partenariat Consortium Financement) */
-.financing__with { white-space: nowrap; }
+.financing__with,
+.partner-note__tag.financing__with {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
 .financing__logo {
   display: inline-block;
   height: 40px;
