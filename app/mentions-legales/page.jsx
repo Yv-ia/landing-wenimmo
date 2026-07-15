@@ -1,4 +1,4 @@
-import LegalLayout, { Todo } from "@/components/LegalLayout";
+import LegalLayout from "@/components/LegalLayout";
 
 export const metadata = {
   title: "Mentions légales — Wenimmo",
@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function MentionsLegalesPage() {
   return (
-    <LegalLayout title="Mentions légales" updatedAt="24 juin 2026">
+    <LegalLayout title="Mentions légales" updatedAt="15 juillet 2026">
       <p>
         Conformément aux dispositions des articles 6-III et 19 de la loi n° 2004-575 du 21 juin 2004
         pour la confiance dans l'économie numérique (LCEN), il est porté à la connaissance des
@@ -29,6 +29,8 @@ export default function MentionsLegalesPage() {
         <dd>Paris 883 127 946</dd>
         <dt>SIREN</dt>
         <dd>883 127 946</dd>
+        <dt>Code APE</dt>
+        <dd>6622Z</dd>
         <dt>N° TVA intracommunautaire</dt>
         <dd>FR55883127946</dd>
         <dt>Téléphone</dt>
@@ -37,7 +39,7 @@ export default function MentionsLegalesPage() {
         </dd>
         <dt>Adresse e-mail</dt>
         <dd>
-          <a href="mailto:backoffice@wenimmo.com">backoffice@wenimmo.com</a>
+          <a href="mailto:contact@wenimmo.com">contact@wenimmo.com</a>
         </dd>
       </dl>
 
@@ -77,16 +79,16 @@ export default function MentionsLegalesPage() {
       </ul>
       <p>Ces activités d'intermédiation sont exercées sans autorisation d'encaissement de fonds.</p>
       <p>
-        En qualité de Conseiller en Investissements Financiers, Wenimmo est adhérente de
-        l'association professionnelle{" "}
+        En qualité de Conseiller en Investissements Financiers, Wenimmo est enregistrée sous le
+        numéro <strong>E009437</strong> auprès de l'association professionnelle{" "}
         <strong>CNCGP — Chambre Nationale des Conseils en Gestion de Patrimoine</strong>, agréée par
         l'Autorité des marchés financiers.
       </p>
       <p>Les activités de Wenimmo sont soumises au contrôle des autorités suivantes :</p>
       <ul>
         <li>
-          <strong>Autorité de Contrôle Prudentiel et de Résolution (ACPR)</strong> — 4, place de
-          Budapest, CS 92459, 75436 Paris Cedex 09 (activités d'assurance et bancaires).
+          <strong>Autorité de Contrôle Prudentiel et de Résolution (ACPR)</strong> — 61, rue
+          Taitbout, 75346 Paris Cedex 09 (activités d'assurance et bancaires).
         </li>
         <li>
           <strong>Autorité des marchés financiers (AMF)</strong> — 17, place de la Bourse, 75082
@@ -94,9 +96,9 @@ export default function MentionsLegalesPage() {
         </li>
       </ul>
       <p>
-        Conformément à la réglementation, Wenimmo dispose d'une assurance de responsabilité civile
-        professionnelle et, le cas échéant, d'une garantie financière :{" "}
-        <Todo>nom de l'assureur et n° de contrat RC Pro</Todo>.
+        Conformément au Code des assurances, Wenimmo dispose d'une garantie financière et d'une
+        assurance de responsabilité civile professionnelle souscrites auprès de{" "}
+        <strong>MMA sous le n° 114240090</strong>.
       </p>
 
       <h2>4. Hébergement</h2>
