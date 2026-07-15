@@ -194,9 +194,6 @@ export default function Offers() {
                   <li>Simulation en ligne&nbsp;: projetez les performances pour vos clients</li>
                   <li>Documents réglementaires et commerciaux accessibles directement</li>
                 </ul>
-                <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
-                  Explorer l'offre SCPI <span className="btn__arrow">→</span>
-                </a>
               </div>
             </div>
           </div>
@@ -238,9 +235,6 @@ export default function Offers() {
                   <li>Deux formules selon la SCPI&nbsp;: avec ou sans apport jusqu'à 25&nbsp;ans, ou avec apport jusqu'à 20&nbsp;ans</li>
                   <li>Dossier étudié et monté par Consortium Financement, courtier spécialiste du crédit SCPI</li>
                 </ul>
-                <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
-                  Découvrir le financement SCPI <span className="btn__arrow">→</span>
-                </a>
                 <p className="offer__disclaimer">
                   Un crédit vous engage et doit être remboursé. Assurez-vous de vos capacités
                   de remboursement avant de vous engager.
@@ -271,9 +265,6 @@ export default function Offers() {
                   <li>Avantages fiscaux associés (IFI, transmission)</li>
                   <li>Logos et fiches partenaires disponibles sur la plateforme</li>
                 </ul>
-                <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
-                  Découvrir les partenaires <span className="btn__arrow">→</span>
-                </a>
               </div>
             </div>
           </div>
@@ -300,9 +291,6 @@ export default function Offers() {
                   <li>Solutions retraite (PER individuel et collectif)</li>
                   <li>Prévoyance complémentaire</li>
                 </ul>
-                <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
-                  Accéder à l'offre assurance <span className="btn__arrow">→</span>
-                </a>
               </div>
             </div>
           </div>
@@ -329,9 +317,6 @@ export default function Offers() {
                   <li>Accompagnement à la souscription</li>
                   <li>Documentation réglementaire complète</li>
                 </ul>
-                <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
-                  Explorer le Private Equity <span className="btn__arrow">→</span>
-                </a>
               </div>
             </div>
           </div>
