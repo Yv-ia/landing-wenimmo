@@ -172,32 +172,6 @@ export default function Offers() {
                   <li>Simulation en ligne&nbsp;: projetez les performances pour vos clients</li>
                   <li>Documents réglementaires et commerciaux accessibles directement</li>
                 </ul>
-                <a
-                  href="https://2ndmarket.fr/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="partner-note"
-                >
-                  <span className="partner-note__head">
-                    <img
-                      src="/assets/partners/2nd-market.svg"
-                      alt="2nd Market"
-                      className="partner-note__logo"
-                    />
-                    <span className="partner-note__tag">Partenaire · Marché secondaire</span>
-                  </span>
-                  <span className="partner-note__body">
-                    Le marché secondaire des parts de SCPI — comme un Bon&nbsp;Coin des SCPI. Décotes de
-                    -10&nbsp;% à -35&nbsp;%, transactions sécurisées par notaire.
-                  </span>
-                  <ul className="partner-note__list">
-                    <li>Aucune rétrocommission</li>
-                    <li>Aucun conseil en investissement</li>
-                  </ul>
-                  <span className="text-button">
-                    Découvrir 2nd&nbsp;Market <span className="btn__arrow">→</span>
-                  </span>
-                </a>
                 <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
                   Explorer l'offre SCPI <span className="btn__arrow">→</span>
                 </a>
@@ -292,6 +266,32 @@ export default function Offers() {
             </div>
           </div>
         </div>
+
+        <a
+          href="https://2ndmarket.fr/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="partner-note reveal"
+        >
+          <span className="partner-note__main">
+            <span className="partner-note__head">
+              <img
+                src="/assets/partners/2nd-market.svg"
+                alt="2nd Market"
+                className="partner-note__logo"
+              />
+              <span className="partner-note__tag">Partenaire · Marché secondaire</span>
+            </span>
+            <span className="partner-note__body">
+              Le marché secondaire des parts de SCPI — comme un Bon&nbsp;Coin des SCPI. Décotes de
+              -10&nbsp;% à -35&nbsp;%, transactions sécurisées par notaire. Aucune rétrocommission,
+              aucun conseil en investissement.
+            </span>
+          </span>
+          <span className="text-button">
+            Découvrir 2nd&nbsp;Market <span className="btn__arrow">→</span>
+          </span>
+        </a>
       </div>
     </section>
   );

@@ -863,12 +863,18 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
 
 /* Encart partenaire discret (ex. 2nd Market, marché secondaire SCPI) */
 .partner-note {
-  display: block;
-  margin-bottom: 24px;
-  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 28px;
+  padding: 16px 22px;
   border-radius: 12px;
   background: var(--primary-soft);
   text-decoration: none;
+}
+.partner-note__main {
+  display: block;
 }
 .partner-note__head {
   display: flex;
@@ -897,31 +903,6 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   color: var(--text);
 }
 .partner-note__body strong { color: var(--primary-dark); }
-.partner-note__list {
-  margin: 10px 0 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.partner-note__list li {
-  position: relative;
-  padding-left: 18px;
-  font-size: 14.5px;
-  line-height: 1.5;
-  color: var(--text);
-}
-.partner-note__list li::before {
-  content: "";
-  position: absolute;
-  left: 2px;
-  top: 8px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--primary);
-}
 /* Bouton texte : lien souligné qui se dessine de gauche à droite au survol */
 .text-button {
   position: relative;
@@ -939,11 +920,12 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   transition: width 0.25s ease;
 }
 .text-button:hover::after { width: 100%; }
-.partner-note .text-button { margin-top: 10px; }
+.partner-note .text-button { flex-shrink: 0; white-space: nowrap; }
 
 @media (max-width: 900px) {
   .offer-panel { grid-template-columns: 1fr; gap: 28px; }
   .offer-panel__numlabel { margin-bottom: 16px; }
+  .partner-note { flex-direction: column; align-items: flex-start; gap: 14px; }
 }
 
 /* Carrousel logos (marquee CSS) */
