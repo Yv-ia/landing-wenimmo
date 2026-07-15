@@ -866,14 +866,12 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   display: block;
   margin-bottom: 24px;
   padding: 16px 18px;
-  border: 1px solid var(--line, #e6e6f0);
-  border-left: 3px solid var(--primary);
   border-radius: 12px;
   background: var(--primary-soft);
   text-decoration: none;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: transform 0.2s ease;
 }
-.partner-note:hover { transform: translateY(-2px); border-color: var(--primary); }
+.partner-note:hover { transform: translateY(-2px); }
 .partner-note__head {
   display: flex;
   align-items: center;
