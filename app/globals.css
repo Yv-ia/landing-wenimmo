@@ -896,6 +896,10 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   font-size: 13.5px;
   color: var(--text-light);
 }
+.financing__hint-logo {
+  height: 42px;
+  width: auto;
+}
 .finance-tag {
   display: inline-block;
   padding: 4px 12px;

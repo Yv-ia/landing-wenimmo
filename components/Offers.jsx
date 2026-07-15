@@ -173,7 +173,13 @@ export default function Offers() {
                 <p className="logo-grid__note">…et plus de 30 autres sociétés de gestion</p>
                 <p className="financing__hint">
                   <span className="finance-tag">✓ Financement possible</span>
-                  <span>SCPI finançables à crédit avec Consortium Financement</span>
+                  <span>SCPI finançables avec</span>
+                  <img
+                    className="financing__hint-logo"
+                    src="/assets/partners/consortium-financement.png"
+                    alt="Consortium Financement"
+                    loading="lazy"
+                  />
                 </p>
               </div>
               <div className="offer-panel__body">
