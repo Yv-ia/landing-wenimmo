@@ -32,20 +32,20 @@ export default function Blog() {
             <div className="resource__icon">{LINKEDIN_ICON}</div>
             <h3>Posts LinkedIn</h3>
             <p>Nos analyses et annonces partenaires, publiées chaque semaine sur LinkedIn.</p>
-            <span className="resource__link">Suivre Wenimmo →</span>
+            <span className="text-button">Suivre Wenimmo →</span>
           </a>
           {/* TODO : URL chaîne YouTube Cash Investissement à confirmer */}
           <a href="#" className="resource reveal" data-todo="URL chaîne YouTube Cash Investissement à confirmer">
             <div className="resource__icon">{YOUTUBE_ICON}</div>
             <h3>Cash Investissement</h3>
             <p>Nos vidéos pédagogiques et décryptages marchés, sur notre chaîne YouTube.</p>
-            <span className="resource__link">Voir les vidéos →</span>
+            <span className="text-button">Voir les vidéos →</span>
           </a>
           <a href="#rejoindre" className="resource reveal">
             <div className="resource__icon">{MAIL_ICON}</div>
             <h3>Newsletters</h3>
             <p>L'essentiel de l'actualité des offres et des partenaires, directement dans votre boîte mail.</p>
-            <span className="resource__link">S'abonner →</span>
+            <span className="text-button">S'abonner →</span>
           </a>
         </div>
       </div>

@@ -194,7 +194,7 @@ export default function Offers() {
                     <li>Aucune rétrocommission</li>
                     <li>Aucun conseil en investissement</li>
                   </ul>
-                  <span className="partner-note__link">
+                  <span className="text-button">
                     Découvrir 2nd&nbsp;Market <span className="btn__arrow">→</span>
                   </span>
                 </a>
