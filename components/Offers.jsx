@@ -172,6 +172,23 @@ export default function Offers() {
                   <li>Simulation en ligne&nbsp;: projetez les performances pour vos clients</li>
                   <li>Documents réglementaires et commerciaux accessibles directement</li>
                 </ul>
+                <a
+                  href="https://2ndmarket.fr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="partner-note"
+                >
+                  <span className="partner-note__tag">Partenaire · Marché secondaire</span>
+                  <span className="partner-note__body">
+                    <strong>2nd&nbsp;Market</strong> — la mise en relation vendeurs / acheteurs de parts
+                    de SCPI sur le marché secondaire, y compris en démembrement. Décotes observées de
+                    -10&nbsp;% à -35&nbsp;% selon les SCPI, transactions sécurisées par notaire. 2nd&nbsp;Market
+                    ne dispense aucun conseil&nbsp;: vous restez l'unique conseil de vos clients.
+                  </span>
+                  <span className="partner-note__link">
+                    Découvrir 2nd&nbsp;Market <span className="btn__arrow">→</span>
+                  </span>
+                </a>
                 <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
                   Explorer l'offre SCPI <span className="btn__arrow">→</span>
                 </a>
