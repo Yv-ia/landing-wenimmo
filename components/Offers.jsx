@@ -338,9 +338,9 @@ export default function Offers() {
               <span className="partner-note__tag">Partenaire · Marché secondaire</span>
             </span>
             <span className="partner-note__body">
-              Le marché secondaire des parts de SCPI — comme un Bon&nbsp;Coin des SCPI. Décotes de
-              -10&nbsp;% à -35&nbsp;%, transactions sécurisées par notaire. Aucune rétrocommission,
-              aucun conseil en investissement.
+              La place de marché qui met en relation directe vendeurs et acheteurs de parts de
+              SCPI sur le marché secondaire. Décotes de -10&nbsp;% à -35&nbsp;%, transactions
+              sécurisées par notaire. Aucune rétrocommission, aucun conseil en investissement.
             </span>
           </span>
           <span className="text-button">
