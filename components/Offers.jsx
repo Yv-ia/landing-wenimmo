@@ -228,7 +228,7 @@ export default function Offers() {
                 <p className="partner-note__tag">Partenaire · Courtier en crédit SCPI</p>
               </div>
               <div className="offer-panel__body">
-                <h3 className="offer__title">Financement SCPI — L'effet de levier du crédit pour vos clients</h3>
+                <h3 className="offer__title">Vous pouvez maintenant financer vos SCPI</h3>
                 <p className="offer__lead">
                   Wenimmo s'associe à Consortium Financement pour permettre à vos clients
                   d'acquérir leurs parts de SCPI à crédit, avec ou sans apport.
@@ -236,7 +236,6 @@ export default function Offers() {
                 <ul className="checklist">
                   <li>Plus de 70 SCPI finançables parmi les sociétés de gestion référencées</li>
                   <li>Deux formules selon la SCPI&nbsp;: avec ou sans apport jusqu'à 25&nbsp;ans, ou avec apport jusqu'à 20&nbsp;ans</li>
-                  <li>SCPI éligibles identifiées par le tag «&nbsp;Financement possible&nbsp;» sur la plateforme</li>
                   <li>Dossier étudié et monté par Consortium Financement, courtier spécialiste du crédit SCPI</li>
                 </ul>
                 <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
