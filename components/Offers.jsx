@@ -19,6 +19,7 @@ const SCPI_LOGOS = [
 
 const TABS = [
   { id: "scpi", label: "SCPI" },
+  { id: "financement-scpi", label: "Financement SCPI" },
   { id: "assurance", label: "Assurance-vie" },
   { id: "private-equity", label: "Private Equity" },
   { id: "gfi-gfv", label: "GFI / GFV" },
@@ -179,7 +180,57 @@ export default function Offers() {
             </div>
           </div>
 
-          {/* 3.2 GFI / GFV */}
+          {/* 3.2 Financement SCPI (partenariat Consortium Financement) */}
+          <div {...panelProps("financement-scpi")}>
+            <div className="offer-panel">
+              <div className="offer-panel__figure">
+                <div className="offer-panel__topline">
+                  <p className="offer-panel__num">+70</p>
+                  <p className="offer-panel__numlabel">SCPI finançables à crédit</p>
+                </div>
+                <a
+                  href="https://www.consortium-financement.fr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Consortium Financement"
+                >
+                  <img
+                    src="/assets/partners/consortium-financement.png"
+                    alt="Consortium Financement"
+                    className="financing__logo"
+                    loading="lazy"
+                  />
+                </a>
+                <p className="partner-note__tag">Partenaire · Courtier en crédit SCPI</p>
+                <p className="financing__hint">
+                  <span className="finance-tag">✓ Financement possible</span>
+                  <span>le tag qui repère les SCPI éligibles sur la plateforme</span>
+                </p>
+              </div>
+              <div className="offer-panel__body">
+                <h3 className="offer__title">Financement SCPI — L'effet de levier du crédit pour vos clients</h3>
+                <p className="offer__lead">
+                  Wenimmo s'associe à Consortium Financement pour permettre à vos clients
+                  d'acquérir leurs parts de SCPI à crédit, avec ou sans apport.
+                </p>
+                <ul className="checklist">
+                  <li>Plus de 70 SCPI finançables parmi les sociétés de gestion référencées</li>
+                  <li>Deux formules selon la SCPI&nbsp;: avec ou sans apport jusqu'à 25&nbsp;ans, ou avec apport jusqu'à 20&nbsp;ans</li>
+                  <li>SCPI éligibles identifiées par le tag «&nbsp;Financement possible&nbsp;» sur la plateforme</li>
+                  <li>Dossier étudié et monté par Consortium Financement, courtier spécialiste du crédit SCPI</li>
+                </ul>
+                <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
+                  Découvrir le financement SCPI <span className="btn__arrow">→</span>
+                </a>
+                <p className="offer__disclaimer">
+                  Un crédit vous engage et doit être remboursé. Assurez-vous de vos capacités
+                  de remboursement avant de vous engager.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 3.3 GFI / GFV */}
           <div {...panelProps("gfi-gfv")}>
             <div className="offer-panel">
               <div className="offer-panel__figure">
@@ -208,7 +259,7 @@ export default function Offers() {
             </div>
           </div>
 
-          {/* 3.3 Assurance */}
+          {/* 3.4 Assurance */}
           <div {...panelProps("assurance")}>
             <div className="offer-panel">
               <div className="offer-panel__figure">
@@ -237,7 +288,7 @@ export default function Offers() {
             </div>
           </div>
 
-          {/* 3.4 Private Equity */}
+          {/* 3.5 Private Equity */}
           <div {...panelProps("private-equity")}>
             <div className="offer-panel">
               <div className="offer-panel__figure">
