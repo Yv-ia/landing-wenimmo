@@ -191,9 +191,11 @@ export default function Offers() {
                     parts de SCPI sur le marché secondaire — comme un Bon&nbsp;Coin des SCPI. Les décotes
                     observées vont de -10&nbsp;% à -35&nbsp;% selon les SCPI. Une fois l'offre acceptée, la
                     transaction est prise en charge de bout en bout et sécurisée par un notaire.
-                    2nd&nbsp;Market ne perçoit aucune rétrocommission et ne dispense aucun conseil en
-                    investissement.
                   </span>
+                  <ul className="partner-note__list">
+                    <li>2nd&nbsp;Market ne perçoit aucune rétrocommission</li>
+                    <li>2nd&nbsp;Market ne dispense aucun conseil en investissement</li>
+                  </ul>
                   <span className="partner-note__link">
                     Découvrir 2nd&nbsp;Market <span className="btn__arrow">→</span>
                   </span>
