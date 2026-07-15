@@ -200,6 +200,11 @@ export default function CgpForm() {
           </>
         )}
       </button>
+      <p className="form__rgpd">
+        Les données recueillies via ce formulaire sont traitées par Wenimmo pour répondre à votre
+        demande. En savoir plus&nbsp;:{" "}
+        <a href="/politique-de-confidentialite">Politique de confidentialité</a>.
+      </p>
       {status === "success" && (
         <p className="form__success">
           Merci&nbsp;! Votre demande a bien été envoyée — notre équipe revient vers vous rapidement.

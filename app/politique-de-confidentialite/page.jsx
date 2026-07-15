@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function PolitiqueConfidentialitePage() {
   return (
-    <LegalLayout title="Politique de confidentialité" updatedAt="24 juin 2026">
+    <LegalLayout title="Politique de confidentialité" updatedAt="15 juillet 2026">
       <p>
         Wenimmo accorde une grande importance à la protection de votre vie privée et de vos données à
         caractère personnel. La présente politique décrit la manière dont vos données sont collectées
@@ -19,9 +19,11 @@ export default function PolitiqueConfidentialitePage() {
 
       <h2>1. Responsable du traitement</h2>
       <p>
-        Le responsable du traitement est <strong>Wenimmo</strong>, dont le siège social est situé
-        26, rue Poncelet, 75017 Paris. Pour toute question relative à vos données, vous pouvez nous
-        contacter à l'adresse <a href="mailto:backoffice@wenimmo.com">backoffice@wenimmo.com</a>.
+        Le responsable du traitement est <strong>WENIMMO</strong>, société au capital de
+        2.200&nbsp;€, immatriculée au RCS de Paris sous le numéro 883&nbsp;127&nbsp;946 (Code APE
+        6622Z – TVA FR55883127946), dont le siège social est situé 26, rue Poncelet, 75017 Paris.
+        Pour toute question relative à vos données, vous pouvez nous contacter à l'adresse{" "}
+        <a href="mailto:backoffice@wenimmo.com">backoffice@wenimmo.com</a>.
       </p>
 
       <h2>2. Données que nous collectons</h2>
@@ -77,16 +79,12 @@ export default function PolitiqueConfidentialitePage() {
         <li>
           <strong>Resend, Inc.</strong> — acheminement des e-mails issus du formulaire de contact.
         </li>
-        <li>
-          <strong>Google</strong> — fourniture des polices d'écriture (Google Fonts) ; à ce titre,
-          votre adresse IP peut être transmise aux serveurs de Google lors du chargement des pages.
-        </li>
       </ul>
       <p>Vos données ne sont ni vendues ni cédées à des tiers à des fins commerciales.</p>
 
       <h2>6. Transferts hors Union européenne</h2>
       <p>
-        Certains de nos prestataires (Vercel, Resend, Google) sont établis aux États-Unis. Les
+        Certains de nos prestataires (Vercel, Resend) sont établis aux États-Unis. Les
         transferts de données vers ces prestataires sont encadrés par des garanties appropriées au
         sens du RGPD, telles que les clauses contractuelles types de la Commission européenne et/ou
         l'adhésion au « Data Privacy Framework » UE–États-Unis.
@@ -140,8 +138,8 @@ export default function PolitiqueConfidentialitePage() {
       <p>
         À ce jour, le site n'utilise pas de cookies de mesure d'audience ni de cookies publicitaires.
         Seuls peuvent être mis en œuvre des éléments strictement nécessaires à son bon
-        fonctionnement. Le chargement des polices d'écriture via Google Fonts est susceptible de
-        communiquer votre adresse IP à Google (voir l'article 5). Si des outils de mesure d'audience
+        fonctionnement. Les polices d'écriture sont hébergées sur nos propres serveurs&nbsp;: leur
+        chargement n'entraîne aucune transmission de données à des tiers. Si des outils de mesure d'audience
         venaient à être ajoutés, votre consentement serait recueilli au préalable et la présente
         politique serait mise à jour.
       </p>

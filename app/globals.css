@@ -36,7 +36,7 @@
   --shadow: 0 8px 30px rgba(20, 20, 60, 0.08);
   --shadow-hover: 0 16px 44px rgba(70, 70, 240, 0.16);
 
-  --font: "Mona Sans", "Helvetica Neue", Arial, sans-serif;
+  --font: var(--font-mona-sans, "Mona Sans"), "Helvetica Neue", Arial, sans-serif;
 
   /* Marges latérales : 88px du bord sur desktop, réduites sur mobile */
   --gutter: clamp(16px, 5vw, 88px);
@@ -1355,6 +1355,16 @@ button.contact-row:hover { background: rgba(255, 255, 255, 0.14); transform: tra
   font-size: 12.5px;
   font-weight: 600;
   color: #c1273a;
+}
+.form__rgpd {
+  margin-top: 10px;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+.form__rgpd a {
+  color: inherit;
+  text-decoration: underline;
 }
 .form__success {
   margin-top: 16px;
