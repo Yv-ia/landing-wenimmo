@@ -886,12 +886,15 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   flex-wrap: wrap;
   gap: 4px;
 }
+.financing__logo-link {
+  display: block;
+  margin-top: 10px;
+  width: fit-content;
+}
 .financing__logo {
-  display: inline-block;
-  height: 40px;
+  display: block;
+  height: 80px;
   width: auto;
-  vertical-align: middle;
-  margin-left: 4px;
 }
 .financing__hint {
   display: flex;

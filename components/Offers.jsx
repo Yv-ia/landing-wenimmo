@@ -210,21 +210,22 @@ export default function Offers() {
                   <p className="offer-panel__numlabel">SCPI finançables</p>
                 </div>
                 <p className="partner-note__tag financing__with">
-                  avec notre partenaire · Courtier en crédit SCPI{" "}
-                  <a
-                    href="https://www.consortium-financement.fr/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Consortium Financement"
-                  >
-                    <img
-                      src="/assets/partners/consortium-financement.png"
-                      alt="Consortium Financement"
-                      className="financing__logo"
-                      loading="lazy"
-                    />
-                  </a>
+                  avec notre partenaire · Courtier en crédit SCPI
                 </p>
+                <a
+                  href="https://www.consortium-financement.fr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Consortium Financement"
+                  className="financing__logo-link"
+                >
+                  <img
+                    src="/assets/partners/consortium-financement.png"
+                    alt="Consortium Financement"
+                    className="financing__logo"
+                    loading="lazy"
+                  />
+                </a>
               </div>
               <div className="offer-panel__body">
                 <h3 className="offer__title">Financez vos SCPI</h3>
