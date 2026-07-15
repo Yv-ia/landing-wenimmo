@@ -2,19 +2,21 @@
 
 import { useEffect, useState } from "react";
 
-/* "scale" : ajustement fin pour les logos sans marges internes */
+/* "scale" : ajustement fin pour les logos sans marges internes.
+   "financeable" : société de gestion avec SCPI finançables à crédit
+   (liste Consortium Financement) — affiche le tag « Financement possible ». */
 const SCPI_LOGOS = [
-  { src: "/assets/partners/corum.svg", alt: "Corum", scale: 0.78 },
-  { src: "/assets/partners/iroko.png", alt: "Iroko" },
-  { src: "/assets/partners/remake.png", alt: "Remake AM" },
-  { src: "/assets/partners/edmond-de-rothschild.png", alt: "Edmond de Rothschild" },
-  { src: "/assets/partners/alderan.png", alt: "Alderan" },
-  { src: "/assets/partners/arkea.png", alt: "Arkéa REIM" },
-  { src: "/assets/partners/atland.png", alt: "Atland Voisin" },
-  { src: "/assets/partners/wemo.png", alt: "Wemo Reim" },
+  { src: "/assets/partners/corum.svg", alt: "Corum", scale: 0.78, financeable: true },
+  { src: "/assets/partners/iroko.png", alt: "Iroko", financeable: true },
+  { src: "/assets/partners/remake.png", alt: "Remake AM", financeable: true },
+  { src: "/assets/partners/edmond-de-rothschild.png", alt: "Edmond de Rothschild", financeable: true },
+  { src: "/assets/partners/alderan.png", alt: "Alderan", financeable: true },
+  { src: "/assets/partners/arkea.png", alt: "Arkéa REIM", financeable: true },
+  { src: "/assets/partners/atland.png", alt: "Atland Voisin", financeable: true },
+  { src: "/assets/partners/wemo.png", alt: "Wemo Reim", financeable: true },
   { src: "/assets/partners/mnk-partners.png", alt: "MNK Partners" },
-  { src: "/assets/partners/norma-capital.png", alt: "Norma Capital" },
-  { src: "/assets/partners/sogenial.png", alt: "Sogenial" },
+  { src: "/assets/partners/norma-capital.png", alt: "Norma Capital", financeable: true },
+  { src: "/assets/partners/sogenial.png", alt: "Sogenial", financeable: true },
 ];
 
 const TABS = [
@@ -149,6 +151,15 @@ export default function Offers() {
                 <div className="logo-grid">
                   {SCPI_LOGOS.map((logo) => (
                     <div className="logo-grid__cell" key={logo.src}>
+                      {logo.financeable && (
+                        <span
+                          className="finance-dot"
+                          title="Financement possible"
+                          aria-label="Financement possible"
+                        >
+                          ✓
+                        </span>
+                      )}
                       <img
                         src={logo.src}
                         alt={logo.alt}
@@ -160,6 +171,10 @@ export default function Offers() {
                   ))}
                 </div>
                 <p className="logo-grid__note">…et plus de 30 autres sociétés de gestion</p>
+                <p className="financing__hint">
+                  <span className="finance-tag">✓ Financement possible</span>
+                  <span>SCPI finançables à crédit avec Consortium Financement</span>
+                </p>
               </div>
               <div className="offer-panel__body">
                 <h3 className="offer__title">Plus de 90 SCPI accessibles</h3>
@@ -205,10 +220,6 @@ export default function Offers() {
                   </span>
                 </p>
                 <p className="partner-note__tag">Partenaire · Courtier en crédit SCPI</p>
-                <p className="financing__hint">
-                  <span className="finance-tag">✓ Financement possible</span>
-                  <span>le tag qui repère les SCPI éligibles sur la plateforme</span>
-                </p>
               </div>
               <div className="offer-panel__body">
                 <h3 className="offer__title">Financement SCPI — L'effet de levier du crédit pour vos clients</h3>

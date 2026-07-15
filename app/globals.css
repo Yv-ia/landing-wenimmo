@@ -833,10 +833,27 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
   gap: 14px 18px;
 }
 .logo-grid__cell {
+  position: relative;
   padding: 8px 4px;
   display: grid;
   place-items: center;
   transition: transform 0.25s ease;
+}
+/* Pastille « Financement possible » sur les sociétés de gestion éligibles */
+.finance-dot {
+  position: absolute;
+  top: 0;
+  right: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #ecfdf3;
+  color: #067647;
+  font-size: 9px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
 }
 .logo-grid__cell:hover { transform: translateY(-3px); }
 .logo-grid__cell img {
