@@ -228,7 +228,7 @@ export default function Offers() {
                 <p className="partner-note__tag">Partenaire · Courtier en crédit SCPI</p>
               </div>
               <div className="offer-panel__body">
-                <h3 className="offer__title">Vous pouvez maintenant financer vos SCPI</h3>
+                <h3 className="offer__title">Financez vos SCPI</h3>
                 <p className="offer__lead">
                   Wenimmo s'associe à Consortium Financement pour permettre à vos clients
                   d'acquérir leurs parts de SCPI à crédit, avec ou sans apport.
