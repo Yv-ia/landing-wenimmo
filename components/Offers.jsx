@@ -208,7 +208,7 @@ export default function Offers() {
                 <div className="offer-panel__topline">
                   <p className="offer-panel__num">+70</p>
                   <p className="offer-panel__numlabel">
-                    SCPI finançables à crédit{" "}
+                    SCPI finançables{" "}
                     <span className="financing__with">
                       avec{" "}
                       <a
