@@ -531,7 +531,7 @@ body.js .reveal.is-visible { opacity: 1; transform: none; }
 /* ==========================================================================
    SECTIONS — communs
    ========================================================================== */
-.section { padding-block: clamp(72px, 9vw, 120px); }
+.section { padding-block: clamp(60px, 9vw, 108px); }
 
 .section__head { max-width: 760px; margin-bottom: clamp(40px, 5vw, 64px); }
 .section__head--center { text-align: center; margin-inline: auto; }
