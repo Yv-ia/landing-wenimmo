@@ -1,4 +1,15 @@
+import { Mona_Sans } from "next/font/google";
 import "./globals.css";
+
+/* Mona Sans (corps de texte) auto-hébergée via next/font : téléchargée au build,
+   servie depuis notre domaine — plus aucune requête vers fonts.googleapis.com.
+   Les grands titres utilisent Mona Sans Expanded, auto-hébergée dans public/assets/fonts. */
+const monaSans = Mona_Sans({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-mona-sans",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Wenimmo — Libérez du temps pour vos clients",
@@ -11,16 +22,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Mona Sans (corps de texte) — les grands titres utilisent Mona Sans Expanded, auto-hébergée dans public/assets/fonts */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,300..900;1,300..900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="fr" className={monaSans.variable}>
       <body>{children}</body>
     </html>
   );

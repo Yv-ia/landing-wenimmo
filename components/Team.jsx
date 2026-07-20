@@ -60,7 +60,7 @@ export default function Team() {
             </p>
             <ul className="contact-rows">
               <li>
-                <a href="tel:+33670886334" className="contact-row">
+                <a href="tel:+33784586502" className="contact-row">
                   <span className="contact-row__icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                       <path
@@ -70,7 +70,7 @@ export default function Team() {
                       />
                     </svg>
                   </span>
-                  <span className="contact-row__value">+33 6 70 88 63 34</span>
+                  <span className="contact-row__value">+33 7 84 58 65 02</span>
                   <span className="contact-row__note">Lun – Ven · 9h – 19h</span>
                 </a>
               </li>
@@ -140,16 +140,6 @@ export default function Team() {
                     <strong>Linda Taillefer</strong>
                     <span className="person__phone">
                       <a href="tel:+33619592201">+33 6 19 59 22 01</a>
-                    </span>
-                  </div>
-                </li>
-                <li className="person">
-                  <span className="person__avatar">CC</span>
-                  <div className="person__content">
-                    <strong>Caroline Chayeb</strong>
-                    <span className="person__phone">
-                      <a href="tel:+33607672635">+33 6 07 67 26 35</a>
-                      <a href="tel:+33784586502">+33 7 84 58 65 02</a>
                     </span>
                   </div>
                 </li>

@@ -2,23 +2,26 @@
 
 import { useEffect, useState } from "react";
 
-/* "scale" : ajustement fin pour les logos sans marges internes */
+/* "scale" : ajustement fin pour les logos sans marges internes.
+   "financeable" : société de gestion avec SCPI finançables à crédit
+   (liste Consortium Financement) — affiche le tag « Financement possible ». */
 const SCPI_LOGOS = [
-  { src: "/assets/partners/corum.svg", alt: "Corum", scale: 0.78 },
-  { src: "/assets/partners/iroko.png", alt: "Iroko" },
-  { src: "/assets/partners/remake.png", alt: "Remake AM" },
-  { src: "/assets/partners/edmond-de-rothschild.png", alt: "Edmond de Rothschild" },
-  { src: "/assets/partners/alderan.png", alt: "Alderan" },
-  { src: "/assets/partners/arkea.png", alt: "Arkéa REIM" },
-  { src: "/assets/partners/atland.png", alt: "Atland Voisin" },
-  { src: "/assets/partners/wemo.png", alt: "Wemo Reim" },
+  { src: "/assets/partners/corum.svg", alt: "Corum", scale: 0.78, financeable: true },
+  { src: "/assets/partners/iroko.png", alt: "Iroko", financeable: true },
+  { src: "/assets/partners/remake.png", alt: "Remake AM", financeable: true },
+  { src: "/assets/partners/edmond-de-rothschild.png", alt: "Edmond de Rothschild", financeable: true },
+  { src: "/assets/partners/alderan.png", alt: "Alderan", financeable: true },
+  { src: "/assets/partners/arkea.png", alt: "Arkéa REIM", financeable: true },
+  { src: "/assets/partners/atland.png", alt: "Atland Voisin", financeable: true },
+  { src: "/assets/partners/wemo.png", alt: "Wemo Reim", financeable: true },
   { src: "/assets/partners/mnk-partners.png", alt: "MNK Partners" },
-  { src: "/assets/partners/norma-capital.png", alt: "Norma Capital" },
-  { src: "/assets/partners/sogenial.png", alt: "Sogenial" },
+  { src: "/assets/partners/norma-capital.png", alt: "Norma Capital", financeable: true },
+  { src: "/assets/partners/sogenial.png", alt: "Sogenial", financeable: true },
 ];
 
 const TABS = [
   { id: "scpi", label: "SCPI" },
+  { id: "financement-scpi", label: "Financement SCPI" },
   { id: "assurance", label: "Assurance-vie" },
   { id: "private-equity", label: "Private Equity" },
   { id: "gfi-gfv", label: "GFI / GFV" },
@@ -148,6 +151,15 @@ export default function Offers() {
                 <div className="logo-grid">
                   {SCPI_LOGOS.map((logo) => (
                     <div className="logo-grid__cell" key={logo.src}>
+                      {logo.financeable && (
+                        <span
+                          className="finance-dot"
+                          title="Financement possible"
+                          aria-label="Financement possible"
+                        >
+                          ✓
+                        </span>
+                      )}
                       <img
                         src={logo.src}
                         alt={logo.alt}
@@ -159,6 +171,16 @@ export default function Offers() {
                   ))}
                 </div>
                 <p className="logo-grid__note">…et plus de 30 autres sociétés de gestion</p>
+                <p className="financing__hint">
+                  <span className="finance-tag">✓ Financement possible</span>
+                  <span>SCPI finançables avec</span>
+                  <img
+                    className="financing__hint-logo"
+                    src="/assets/partners/consortium-financement.png"
+                    alt="Consortium Financement"
+                    loading="lazy"
+                  />
+                </p>
               </div>
               <div className="offer-panel__body">
                 <h3 className="offer__title">Plus de 90 SCPI accessibles</h3>
@@ -172,14 +194,56 @@ export default function Offers() {
                   <li>Simulation en ligne&nbsp;: projetez les performances pour vos clients</li>
                   <li>Documents réglementaires et commerciaux accessibles directement</li>
                 </ul>
-                <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
-                  Explorer l'offre SCPI <span className="btn__arrow">→</span>
-                </a>
               </div>
             </div>
           </div>
 
-          {/* 3.2 GFI / GFV */}
+          {/* 3.2 Financement SCPI (partenariat Consortium Financement) */}
+          <div {...panelProps("financement-scpi")}>
+            <div className="offer-panel">
+              <div className="offer-panel__figure">
+                <div className="offer-panel__topline">
+                  <p className="offer-panel__num">+70</p>
+                  <p className="offer-panel__numlabel">SCPI finançables</p>
+                </div>
+                <p className="partner-note__tag financing__with">
+                  avec notre partenaire · Courtier en crédit SCPI
+                </p>
+                <a
+                  href="https://www.consortium-financement.fr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Consortium Financement"
+                  className="financing__logo-link"
+                >
+                  <img
+                    src="/assets/partners/consortium-financement.png"
+                    alt="Consortium Financement"
+                    className="financing__logo"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+              <div className="offer-panel__body">
+                <h3 className="offer__title">Financez vos SCPI</h3>
+                <p className="offer__lead">
+                  Wenimmo s'associe à Consortium Financement pour permettre à vos clients
+                  d'acquérir leurs parts de SCPI à crédit, avec ou sans apport.
+                </p>
+                <ul className="checklist">
+                  <li>Plus de 70 SCPI finançables parmi les sociétés de gestion référencées</li>
+                  <li>Deux formules selon la SCPI&nbsp;: avec ou sans apport jusqu'à 25&nbsp;ans, ou avec apport jusqu'à 20&nbsp;ans</li>
+                  <li>Dossier étudié et monté par Consortium Financement, courtier spécialiste du crédit SCPI</li>
+                </ul>
+                <p className="offer__disclaimer">
+                  Un crédit vous engage et doit être remboursé. Assurez-vous de vos capacités
+                  de remboursement avant de vous engager.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 3.3 GFI / GFV */}
           <div {...panelProps("gfi-gfv")}>
             <div className="offer-panel">
               <div className="offer-panel__figure">
@@ -201,14 +265,11 @@ export default function Offers() {
                   <li>Avantages fiscaux associés (IFI, transmission)</li>
                   <li>Logos et fiches partenaires disponibles sur la plateforme</li>
                 </ul>
-                <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
-                  Découvrir les partenaires <span className="btn__arrow">→</span>
-                </a>
               </div>
             </div>
           </div>
 
-          {/* 3.3 Assurance */}
+          {/* 3.4 Assurance */}
           <div {...panelProps("assurance")}>
             <div className="offer-panel">
               <div className="offer-panel__figure">
@@ -230,14 +291,11 @@ export default function Offers() {
                   <li>Solutions retraite (PER individuel et collectif)</li>
                   <li>Prévoyance complémentaire</li>
                 </ul>
-                <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
-                  Accéder à l'offre assurance <span className="btn__arrow">→</span>
-                </a>
               </div>
             </div>
           </div>
 
-          {/* 3.4 Private Equity */}
+          {/* 3.5 Private Equity */}
           <div {...panelProps("private-equity")}>
             <div className="offer-panel">
               <div className="offer-panel__figure">
@@ -259,9 +317,6 @@ export default function Offers() {
                   <li>Accompagnement à la souscription</li>
                   <li>Documentation réglementaire complète</li>
                 </ul>
-                <a href="https://app.wenimmo.com" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
-                  Explorer le Private Equity <span className="btn__arrow">→</span>
-                </a>
               </div>
             </div>
           </div>

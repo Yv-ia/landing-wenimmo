@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Steps from "@/components/Steps";
 import Stats from "@/components/Stats";
 import Offers from "@/components/Offers";
+import PartnerNote from "@/components/PartnerNote";
 import Testimonials from "@/components/Testimonials";
 import Blog from "@/components/Blog";
 import Team from "@/components/Team";
@@ -19,6 +20,7 @@ export default function Page() {
         <Steps />
         <Stats />
         <Offers />
+        <PartnerNote />
         <Testimonials />
         {/* Section blog masquée tant que le contenu est du mock — réactiver en décommentant. */}
         {/* <Blog /> */}
