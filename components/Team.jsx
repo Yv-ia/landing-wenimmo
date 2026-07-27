@@ -206,7 +206,6 @@ export default function Team() {
             </p>
             <ul className="checklist checklist--light">
               <li>Inscription en ligne rapide</li>
-              <li>Formation à la plateforme</li>
               <li>Accompagnement au démarrage</li>
               <li>Webinaires réguliers</li>
             </ul>
