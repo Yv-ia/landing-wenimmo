@@ -84,8 +84,8 @@
     <text x="300" y="112" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-weight="700" fill="#141414">Espace souscription</text>
 
     <!-- CTA -->
-    <rect x="1192" y="79" width="208" height="38" rx="8" fill="#1a1a1a"/>
-    <text x="1296" y="103" text-anchor="middle" font-size="13.5" font-weight="500" fill="#ffffff">Créer une souscription manuelle</text>
+    <rect x="1164" y="82" width="236" height="34" rx="6" fill="#1a1a1a"/>
+    <text x="1282" y="104" text-anchor="middle" font-size="14" font-weight="500" fill="#ffffff">Créer une souscription manuelle</text>
 
     <!-- Onglets -->
     <g font-size="13">
