@@ -1,15 +1,11 @@
 <svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="'Mona Sans', 'Helvetica Neue', Arial, sans-serif">
   <defs>
-    <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#4646f0" stop-opacity="0.22"/>
-      <stop offset="100%" stop-color="#4646f0" stop-opacity="0"/>
-    </linearGradient>
     <clipPath id="frame"><rect width="1440" height="900" rx="0"/></clipPath>
   </defs>
 
   <g clip-path="url(#frame)">
     <!-- Fond -->
-    <rect width="1440" height="900" fill="#f7f8fc"/>
+    <rect width="1440" height="900" fill="#ffffff"/>
 
     <!-- Barre navigateur -->
     <rect width="1440" height="44" fill="#ececf4"/>
@@ -19,129 +15,190 @@
     <rect x="560" y="10" width="320" height="24" rx="12" fill="#ffffff"/>
     <text x="720" y="26" text-anchor="middle" font-size="12" fill="#8b8b9e">app.wenimmo.com</text>
 
-    <!-- Sidebar -->
-    <rect x="0" y="44" width="220" height="856" fill="#0e0e2c"/>
-    <text x="24" y="92" font-size="19" font-weight="700" fill="#ffffff">Wenimmo</text>
+    <!-- ============ SIDEBAR ============ -->
+    <rect x="0" y="44" width="240" height="856" fill="#f5f5f8"/>
+    <line x1="240" y1="44" x2="240" y2="900" stroke="#e7e7ef"/>
 
-    <rect x="12" y="124" width="196" height="38" rx="8" fill="#4646f0"/>
-    <text x="28" y="148" font-size="13.5" font-weight="600" fill="#ffffff">Tableau de bord</text>
-    <text x="28" y="196" font-size="13.5" fill="#9a9ab8">SCPI</text>
-    <text x="28" y="240" font-size="13.5" fill="#9a9ab8">Assurance vie</text>
-    <text x="28" y="284" font-size="13.5" fill="#9a9ab8">Private Equity</text>
-    <text x="28" y="328" font-size="13.5" fill="#9a9ab8">GFI / GFV</text>
-    <text x="28" y="372" font-size="13.5" fill="#9a9ab8">Financement</text>
-    <text x="28" y="416" font-size="13.5" fill="#9a9ab8">Mes dossiers</text>
-    <text x="28" y="460" font-size="13.5" fill="#9a9ab8">Commissions</text>
-
-    <circle cx="36" cy="848" r="14" fill="#4646f0"/>
-    <text x="36" y="853" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">LB</text>
-    <text x="60" y="845" font-size="12.5" font-weight="600" fill="#ffffff">L. Bertrand</text>
-    <text x="60" y="861" font-size="11" fill="#9a9ab8">Cabinet LB Patrimoine</text>
-
-    <!-- En-tête contenu -->
-    <text x="260" y="106" font-size="24" font-weight="700" fill="#141414">Tableau de bord</text>
-    <rect x="940" y="76" width="220" height="40" rx="8" fill="#ffffff" stroke="#e7e7ef"/>
-    <text x="960" y="101" font-size="13" fill="#8b8b9e">Rechercher…</text>
-    <rect x="1180" y="76" width="200" height="40" rx="8" fill="#4646f0"/>
-    <text x="1280" y="101" text-anchor="middle" font-size="13.5" font-weight="600" fill="#ffffff">+ Nouvelle souscription</text>
-
-    <!-- Cartes KPI -->
-    <g>
-      <rect x="260" y="150" width="360" height="110" rx="12" fill="#ffffff" stroke="#e7e7ef"/>
-      <text x="284" y="186" font-size="13" fill="#8b8b9e">Encours total</text>
-      <text x="284" y="226" font-size="30" font-weight="800" fill="#141414">84,2 M€</text>
-      <rect x="540" y="206" width="56" height="24" rx="12" fill="#ecfdf3"/>
-      <text x="568" y="222" text-anchor="middle" font-size="12" font-weight="700" fill="#137a4b">+12 %</text>
+    <!-- Logo (skyline + wordmark) -->
+    <g transform="translate(28,72)" stroke="#4646f0" stroke-width="2.4" fill="none">
+      <rect x="0" y="16" width="9" height="24"/>
+      <rect x="13" y="6" width="9" height="34"/>
+      <rect x="26" y="12" width="8" height="28"/>
+      <rect x="38" y="2" width="9" height="38"/>
+      <rect x="51" y="18" width="9" height="22"/>
     </g>
-    <g>
-      <rect x="640" y="150" width="360" height="110" rx="12" fill="#ffffff" stroke="#e7e7ef"/>
-      <text x="664" y="186" font-size="13" fill="#8b8b9e">Souscriptions en cours</text>
-      <text x="664" y="226" font-size="30" font-weight="800" fill="#141414">132</text>
-      <rect x="920" y="206" width="56" height="24" rx="12" fill="#ecfdf3"/>
-      <text x="948" y="222" text-anchor="middle" font-size="12" font-weight="700" fill="#137a4b">+8</text>
-    </g>
-    <g>
-      <rect x="1020" y="150" width="360" height="110" rx="12" fill="#ffffff" stroke="#e7e7ef"/>
-      <text x="1044" y="186" font-size="13" fill="#8b8b9e">Commissions du mois</text>
-      <text x="1044" y="226" font-size="30" font-weight="800" fill="#141414">96 400 €</text>
-      <rect x="1300" y="206" width="56" height="24" rx="12" fill="#ecfdf3"/>
-      <text x="1328" y="222" text-anchor="middle" font-size="12" font-weight="700" fill="#137a4b">+5 %</text>
+    <path d="M30 128 l14 -10 14 10" stroke="#4646f0" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="70" y="118" font-size="21" font-weight="700" fill="#141414">Wenimmo</text>
+
+    <!-- Nav -->
+    <g font-size="14" fill="#4a4a55">
+      <rect x="20" y="176" width="18" height="18" rx="4" stroke="#9a9ab0" fill="none"/>
+      <text x="52" y="190">Produits</text>
+
+      <rect x="14" y="216" width="212" height="40" rx="8" fill="#e5e5ee"/>
+      <rect x="20" y="228" width="18" height="16" rx="3" stroke="#141414" fill="none"/>
+      <text x="52" y="242" font-weight="700" fill="#141414">Souscriptions</text>
+
+      <circle cx="29" cy="292" r="9" stroke="#9a9ab0" fill="none"/>
+      <text x="52" y="296">Partenaires</text>
+
+      <circle cx="29" cy="340" r="9" stroke="#9a9ab0" fill="none"/>
+      <text x="52" y="344">Mon compte</text>
     </g>
 
-    <!-- Graphique collecte -->
-    <rect x="260" y="290" width="740" height="300" rx="12" fill="#ffffff" stroke="#e7e7ef"/>
-    <text x="284" y="326" font-size="15" font-weight="700" fill="#141414">Collecte mensuelle</text>
-    <line x1="284" y1="380" x2="976" y2="380" stroke="#f0f0f6"/>
-    <line x1="284" y1="430" x2="976" y2="430" stroke="#f0f0f6"/>
-    <line x1="284" y1="480" x2="976" y2="480" stroke="#f0f0f6"/>
-    <line x1="284" y1="530" x2="976" y2="530" stroke="#f0f0f6"/>
-    <polygon points="284,520 360,505 436,512 512,480 588,488 664,450 740,458 816,420 892,400 976,365 976,560 284,560" fill="url(#chartFill)"/>
-    <polyline points="284,520 360,505 436,512 512,480 588,488 664,450 740,458 816,420 892,400 976,365" stroke="#4646f0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="976" cy="365" r="6" fill="#4646f0"/>
-    <circle cx="976" cy="365" r="10" fill="#4646f0" fill-opacity="0.2"/>
-    <text x="284" y="580" font-size="11" fill="#b6b6c6">Jan</text>
-    <text x="436" y="580" font-size="11" fill="#b6b6c6">Mar</text>
-    <text x="588" y="580" font-size="11" fill="#b6b6c6">Mai</text>
-    <text x="740" y="580" font-size="11" fill="#b6b6c6">Juil</text>
-    <text x="892" y="580" font-size="11" fill="#b6b6c6">Sep</text>
+    <!-- Bloc contact -->
+    <rect x="16" y="704" width="208" height="92" rx="8" fill="#f0e2e6"/>
+    <text x="120" y="742" text-anchor="middle" font-size="14" font-weight="600" fill="#3a2a2e">Une question ?</text>
+    <text x="120" y="770" text-anchor="middle" font-size="14" fill="#7a4a54" text-decoration="underline">Contacter Wenimmo</text>
 
-    <!-- Répartition par classe d'actifs -->
-    <rect x="1020" y="290" width="360" height="300" rx="12" fill="#ffffff" stroke="#e7e7ef"/>
-    <text x="1044" y="326" font-size="15" font-weight="700" fill="#141414">Répartition par classe d'actifs</text>
-    <!-- Donut : circonférence r=70 -> 439.8 -->
-    <g transform="rotate(-90 1130 460)">
-      <circle cx="1130" cy="460" r="70" stroke="#4646f0" stroke-width="26" fill="none" stroke-dasharray="237.5 202.3"/>
-      <circle cx="1130" cy="460" r="70" stroke="#5dc8ff" stroke-width="26" fill="none" stroke-dasharray="88 351.8" stroke-dashoffset="-237.5"/>
-      <circle cx="1130" cy="460" r="70" stroke="#9d9dff" stroke-width="26" fill="none" stroke-dasharray="66 373.8" stroke-dashoffset="-325.5"/>
-      <circle cx="1130" cy="460" r="70" stroke="#16163d" stroke-width="26" fill="none" stroke-dasharray="48.3 391.5" stroke-dashoffset="-391.5"/>
+    <!-- Déconnexion -->
+    <rect x="16" y="812" width="208" height="48" rx="8" fill="#141414"/>
+    <path d="M56 830 v10 M52 831 a8 8 0 1 0 8 0" stroke="#ffffff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <text x="78" y="841" font-size="14" font-weight="600" fill="#ffffff">Déconnexion</text>
+
+    <!-- ============ CONTENU ============ -->
+    <!-- Titre -->
+    <text x="300" y="112" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-weight="700" fill="#141414">Espace souscription</text>
+
+    <!-- CTA -->
+    <rect x="1168" y="72" width="232" height="52" fill="#1a1a1a"/>
+    <text x="1284" y="104" text-anchor="middle" font-size="13.5" font-weight="500" fill="#ffffff">Créer une souscription manuelle</text>
+
+    <!-- Onglets -->
+    <g font-size="13">
+      <!-- Brouillons (actif) -->
+      <text x="300" y="164" font-weight="700" fill="#141414">Brouillons</text>
+      <rect x="386" y="150" width="40" height="20" rx="10" fill="#8b8b9e"/>
+      <text x="406" y="164" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">494</text>
+      <rect x="300" y="180" width="126" height="3" rx="1.5" fill="#7a2a34"/>
+
+      <text x="452" y="164" fill="#5a5a68">À traiter</text>
+      <rect x="520" y="150" width="40" height="20" rx="10" fill="#8b8b9e"/>
+      <text x="540" y="164" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">788</text>
+
+      <text x="586" y="164" fill="#5a5a68">En attente de signature</text>
+      <rect x="730" y="150" width="40" height="20" rx="10" fill="#4646f0"/>
+      <text x="750" y="164" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">440</text>
+
+      <text x="796" y="164" fill="#5a5a68">En attente de contrepartie</text>
+      <rect x="962" y="150" width="26" height="20" rx="10" fill="#8b8b9e"/>
+      <text x="975" y="164" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">0</text>
+
+      <text x="1006" y="164" fill="#5a5a68">À transmettre SDG</text>
+      <rect x="1116" y="150" width="40" height="20" rx="10" fill="#4646f0"/>
+      <text x="1136" y="164" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">262</text>
+
+      <text x="1172" y="164" fill="#5a5a68">En attente de validation</text>
+      <rect x="1316" y="150" width="30" height="20" rx="10" fill="#8b8b9e"/>
+      <text x="1331" y="164" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">71</text>
     </g>
-    <text x="1130" y="455" text-anchor="middle" font-size="22" font-weight="800" fill="#141414">54 %</text>
-    <text x="1130" y="475" text-anchor="middle" font-size="11" fill="#8b8b9e">SCPI</text>
-    <g font-size="12" fill="#525252">
-      <circle cx="1252" cy="395" r="5" fill="#4646f0"/><text x="1266" y="399">SCPI</text>
-      <circle cx="1252" cy="425" r="5" fill="#5dc8ff"/><text x="1266" y="429">Assurance vie</text>
-      <circle cx="1252" cy="455" r="5" fill="#9d9dff"/><text x="1266" y="459">Private Equity</text>
-      <circle cx="1252" cy="485" r="5" fill="#16163d"/><text x="1266" y="489">GFI / GFV</text>
+    <line x1="300" y1="183" x2="1400" y2="183" stroke="#e7e7ef"/>
+
+    <!-- Résultats + recherche -->
+    <text x="300" y="240" font-size="15" fill="#141414">494 Résultats</text>
+    <rect x="1160" y="216" width="240" height="42" rx="8" fill="#ffffff" stroke="#e7e7ef"/>
+    <text x="1182" y="242" font-size="13" fill="#9a9ab0">Chercher une souscription</text>
+    <circle cx="1372" cy="237" r="6" stroke="#9a9ab0" stroke-width="1.6" fill="none"/>
+    <line x1="1376" y1="241" x2="1382" y2="247" stroke="#9a9ab0" stroke-width="1.6"/>
+
+    <!-- ===== Tableau ===== -->
+    <!-- En-tête -->
+    <rect x="300" y="278" width="1100" height="58" fill="#f4f4f7"/>
+    <g font-size="11.5" font-weight="700" fill="#3a3a44">
+      <text x="316" y="312">Souscripteur</text>
+      <text x="452" y="312">Type</text>
+      <text x="588" y="303">Nom du cabinet</text><text x="588" y="320">(CGP)</text>
+      <text x="700" y="312">Email du CGP</text>
+      <text x="908" y="303">Téléphone</text><text x="908" y="320">du CGP</text>
+      <text x="1024" y="303">Nom du</text><text x="1024" y="320">produit</text>
+      <text x="1132" y="303">Type de</text><text x="1132" y="320">souscription</text>
+      <text x="1262" y="312">Montant</text>
+      <text x="1344" y="303">Nombre</text><text x="1344" y="320">de parts</text>
     </g>
 
-    <!-- Tableau dernières souscriptions -->
-    <rect x="260" y="620" width="1120" height="246" rx="12" fill="#ffffff" stroke="#e7e7ef"/>
-    <text x="284" y="656" font-size="15" font-weight="700" fill="#141414">Dernières souscriptions</text>
-    <g font-size="11.5" fill="#8b8b9e" font-weight="600">
-      <text x="284" y="690">CLIENT</text>
-      <text x="560" y="690">PRODUIT</text>
-      <text x="900" y="690">MONTANT</text>
-      <text x="1120" y="690">STATUT</text>
+    <!-- Lignes (données anonymisées) -->
+    <!-- fond alterné -->
+    <rect x="300" y="336" width="1100" height="60" fill="#ffffff"/>
+    <rect x="300" y="396" width="1100" height="60" fill="#f8f8fb"/>
+    <rect x="300" y="456" width="1100" height="60" fill="#ffffff"/>
+    <rect x="300" y="516" width="1100" height="60" fill="#f8f8fb"/>
+    <rect x="300" y="576" width="1100" height="60" fill="#ffffff"/>
+    <rect x="300" y="636" width="1100" height="60" fill="#f8f8fb" opacity="0.5"/>
+
+    <g font-size="12.5" fill="#222">
+      <!-- ligne 1 -->
+      <text x="316" y="371">A. ●●●●●●</text>
+      <text x="452" y="371">Personne physique</text>
+      <text x="588" y="371">●●●●●●●●</text>
+      <text x="700" y="371">l●●●●@●●●●.fr</text>
+      <text x="908" y="371">06 ●● ●● ●● ●●</text>
+      <text x="1024" y="371">SCPI Néo</text>
+      <text x="1132" y="371">Pleine propriété</text>
+      <text x="1262" y="371">255,68 €</text>
+      <text x="1362" y="371" text-anchor="middle">1</text>
+
+      <!-- ligne 2 -->
+      <text x="316" y="431">●●●●● (SARL)</text>
+      <text x="452" y="431">Personne morale</text>
+      <text x="588" y="431">●●●●●●●●</text>
+      <text x="700" y="431">c●●●●@●●●●.fr</text>
+      <text x="908" y="431">06 ●● ●● ●● ●●</text>
+      <text x="1024" y="431">SCPI Néo</text>
+      <text x="1132" y="431">Pleine propriété</text>
+      <text x="1262" y="431">255,68 €</text>
+      <text x="1362" y="431" text-anchor="middle">1</text>
+
+      <!-- ligne 3 -->
+      <text x="316" y="491">L. ●●●●●</text>
+      <text x="452" y="484">Personne physique</text>
+      <text x="452" y="500" font-size="11.5" fill="#5a5a68">en co-souscription</text>
+      <text x="588" y="491">●●●●●●●●</text>
+      <text x="700" y="491">l●●●●@●●●●.fr</text>
+      <text x="908" y="491">—</text>
+      <text x="1024" y="491">Immo One</text>
+      <text x="1132" y="491">Pleine propriété</text>
+      <text x="1262" y="491">1 000,00 €</text>
+      <text x="1362" y="491" text-anchor="middle">5</text>
+
+      <!-- ligne 4 -->
+      <text x="316" y="551">●●●●● (SA)</text>
+      <text x="452" y="551">Personne morale</text>
+      <text x="588" y="551">●●●●●●●●</text>
+      <text x="700" y="551">s●●●●@●●●●.fr</text>
+      <text x="908" y="551">06 ●● ●● ●● ●●</text>
+      <text x="1024" y="551">Immo One</text>
+      <text x="1132" y="551">Pleine propriété</text>
+      <text x="1262" y="551">1 000,00 €</text>
+      <text x="1362" y="551" text-anchor="middle">5</text>
+
+      <!-- ligne 5 -->
+      <text x="316" y="611">M. ●●●●●</text>
+      <text x="452" y="611">Personne morale</text>
+      <text x="588" y="611">●●●●●●●●</text>
+      <text x="700" y="611">m●●●●@●●●●.fr</text>
+      <text x="908" y="611">06 ●● ●● ●● ●●</text>
+      <text x="1024" y="611">Rente Zen</text>
+      <text x="1132" y="611">Pleine propriété</text>
+      <text x="1262" y="611">1 000,00 €</text>
+      <text x="1362" y="611" text-anchor="middle">5</text>
+
+      <!-- ligne 6 (coupée) -->
+      <g opacity="0.5">
+        <text x="316" y="671">●●●●●</text>
+        <text x="452" y="671">Personne morale</text>
+        <text x="588" y="671">●●●●●●●●</text>
+        <text x="700" y="671">j●●●●@●●●●.fr</text>
+        <text x="1024" y="671">Corum</text>
+      </g>
     </g>
-    <line x1="284" y1="702" x2="1356" y2="702" stroke="#f0f0f6"/>
 
-    <g font-size="13" fill="#141414">
-      <text x="284" y="730">M. et Mme Lefebvre</text>
-      <text x="560" y="730">SCPI Iroko Zen</text>
-      <text x="900" y="730">45 000 €</text>
-      <rect x="1120" y="714" width="64" height="22" rx="11" fill="#ecfdf3"/>
-      <text x="1152" y="729" text-anchor="middle" font-size="11.5" font-weight="700" fill="#137a4b">Validé</text>
-      <line x1="284" y1="744" x2="1356" y2="744" stroke="#f0f0f6"/>
-
-      <text x="284" y="772">Mme Garnier</text>
-      <text x="560" y="772">Assurance vie — Cardif</text>
-      <text x="900" y="772">120 000 €</text>
-      <rect x="1120" y="756" width="74" height="22" rx="11" fill="#fff7e8"/>
-      <text x="1157" y="771" text-anchor="middle" font-size="11.5" font-weight="700" fill="#b97a12">En cours</text>
-      <line x1="284" y1="786" x2="1356" y2="786" stroke="#f0f0f6"/>
-
-      <text x="284" y="814">M. Dubois</text>
-      <text x="560" y="814">SCPI Remake Live — à crédit</text>
-      <text x="900" y="814">80 000 €</text>
-      <rect x="1120" y="798" width="72" height="22" rx="11" fill="#edf2ff"/>
-      <text x="1156" y="813" text-anchor="middle" font-size="11.5" font-weight="700" fill="#4646f0">À signer</text>
-      <line x1="284" y1="828" x2="1356" y2="828" stroke="#f0f0f6"/>
-
-      <text x="284" y="856">SCI Horizon</text>
-      <text x="560" y="856">GFI France Valley</text>
-      <text x="900" y="856">60 000 €</text>
-      <rect x="1120" y="840" width="64" height="22" rx="11" fill="#ecfdf3"/>
-      <text x="1152" y="855" text-anchor="middle" font-size="11.5" font-weight="700" fill="#137a4b">Validé</text>
+    <!-- séparateurs de lignes -->
+    <g stroke="#eeeef3">
+      <line x1="300" y1="396" x2="1400" y2="396"/>
+      <line x1="300" y1="456" x2="1400" y2="456"/>
+      <line x1="300" y1="516" x2="1400" y2="516"/>
+      <line x1="300" y1="576" x2="1400" y2="576"/>
+      <line x1="300" y1="636" x2="1400" y2="636"/>
     </g>
   </g>
 </svg>
