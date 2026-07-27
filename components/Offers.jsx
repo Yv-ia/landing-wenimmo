@@ -288,6 +288,7 @@ export default function Offers() {
                 <ul className="checklist">
                   <li>6 compagnies partenaires&nbsp;: Cardif, Selencia, MMA, Corum Life, Le Conservateur et AFI&nbsp;Esca</li>
                   <li>Assurance-vie multi-support et contrat de capitalisation</li>
+                  <li>Contrats français et luxembourgeois</li>
                   <li>Solutions retraite (PER individuel et collectif)</li>
                   <li>Prévoyance complémentaire</li>
                 </ul>
