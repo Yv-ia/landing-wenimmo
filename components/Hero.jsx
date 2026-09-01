@@ -30,10 +30,10 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Aperçu de la plateforme (image provisoire — à remplacer par la vraie capture) */}
+      {/* Aperçu lo-fi de l'espace souscription (données anonymisées — à remplacer par la vraie capture) */}
       <div className="container hero__mockup reveal">
         <div className="hero__mockup-frame">
-          <img src="/assets/mockup-plateforme.svg" alt="Aperçu de la plateforme Wenimmo" />
+          <img src="/assets/mockup-plateforme.svg" alt="Aperçu de l'espace souscription Wenimmo" />
         </div>
       </div>
     </section>
